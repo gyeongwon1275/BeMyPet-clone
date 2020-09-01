@@ -1,0 +1,25 @@
+.sns-menu-wrapper {
+  i {
+    transition: 0.3s;
+    font-size: 1.5rem;
+  }
+  .fa-facebook:hover {
+    font-size: 2rem;
+    color: #3b5998 !important;
+  }
+
+  .fa-instagram:hover {
+    font-size: 2rem;
+    color: #c13584 !important;
+  }
+
+  .fa-youtube-play:hover {
+    font-size: 2rem;
+    color: #c31a1e !important;
+  }
+
+  .fa-play:hover {
+    font-size: 2rem;
+    color: #689f38 !important;
+  }
+}

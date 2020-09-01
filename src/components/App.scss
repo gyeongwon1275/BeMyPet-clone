@@ -1,0 +1,21 @@
+$body-color: blue;
+* {
+  // 브라우저에서 기본지정한 margin, padding 제거
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 13px;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  border-radius: 0;
+  border: 0;
+}
