@@ -31,7 +31,7 @@ const TopSnsList: React.FC = () => {
             href="https://play.google.com/store/apps/details?id=kr.bemypet.bemypet_main_app&utm_source=bemypet&utm_campaign=header&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"
             rel="noreferrer nofollow"
           >
-            <i className="fa fa-play" />
+            <i className="fab fa-android" />
           </a>
         </li>
       </ul>
