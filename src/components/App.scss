@@ -1,12 +1,17 @@
-$body-color: blue;
+@import './styles/color.scss';
+
 * {
   // 브라우저에서 기본지정한 margin, padding 제거
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  border: 0;
+  outline: none;
   font-size: 13px;
 }
-
+body {
+  background-color: $bodyColor;
+}
 a {
   text-decoration: none;
 }

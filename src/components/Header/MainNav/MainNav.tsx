@@ -1,6 +1,6 @@
 import * as React from 'react'
 import './MainNav.scss'
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 const MainNav: React.FC = () => {
   return (
     <nav className="main-nav">
