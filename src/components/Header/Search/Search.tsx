@@ -19,7 +19,9 @@ const Search: React.FC = () => {
                 maxLength={255}
                 placeholder="궁금한 사항을 검색해주세요"
               />
-              <button className="search_btn">검색</button>
+              <button className="search_btn">
+                <i className="fa fa-search" />
+              </button>
             </div>
           </form>
         </div>

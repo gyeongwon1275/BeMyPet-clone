@@ -55,5 +55,14 @@
     width: 7%;
     height: 52px;
     background-color: $primaryColor;
+    i {
+      font-size: 1.3rem;
+    }
+  }
+
+  button:hover {
+    cursor: pointer;
+    transition: 0.3s;
+    background: lighten($primaryColor, 10%);
   }
 }
