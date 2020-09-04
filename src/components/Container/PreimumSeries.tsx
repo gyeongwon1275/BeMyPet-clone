@@ -2,7 +2,7 @@ import * as React from 'react'
 import './PreimumSeries.scss'
 const PreimumSeries: React.FC = () => {
   return (
-    <>
+    <div className="premium-post-container">
       <div className="premium-title-icon-wrapper">
         <img
           className="premium-title-icon"
@@ -54,7 +54,7 @@ const PreimumSeries: React.FC = () => {
           <span>내 말은 그 말이 아냥!</span>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
