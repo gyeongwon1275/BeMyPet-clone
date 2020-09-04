@@ -15,6 +15,7 @@
 
 .description-wrapper {
   flex: 2.5;
+  padding-left: 15px;
   h4 {
     font-size: 1.3rem;
     line-height: 1.3;
@@ -58,11 +59,10 @@
     i {
       font-size: 1.3rem;
     }
-  }
-
-  button:hover {
-    cursor: pointer;
-    transition: 0.3s;
-    background: lighten($primaryColor, 10%);
+    &:hover {
+      cursor: pointer;
+      transition: 0.3s;
+      background: lighten($primaryColor, 10%);
+    }
   }
 }

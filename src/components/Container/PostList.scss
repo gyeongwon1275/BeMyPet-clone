@@ -1,0 +1,30 @@
+@import '../styles/color.scss';
+
+.post-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  .post-wrapper {
+    padding: 15px;
+    // padding-left: 20px;
+    // padding-right: 20px;
+  }
+}
+
+.post-meta {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 5px;
+  span {
+    font-weight: 600;
+  }
+  i {
+    color: $primaryColor;
+  }
+}
+.post-card-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
