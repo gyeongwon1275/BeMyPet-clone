@@ -1,0 +1,44 @@
+@import '../../styles/color.scss';
+
+.tool-nav-container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: {
+    left: 40px;
+    right: 40px;
+    top: 65px;
+    bottom: 20px;
+  }
+}
+
+.tool-nav-logo {
+  img {
+    width: 136px;
+    height: 80px;
+  }
+}
+
+.tool-nav-menu {
+  a {
+    position: relative;
+    font-size: 1.3rem;
+    text-align: center;
+    padding-right: 30px;
+    color: #868688;
+    z-index: 1;
+  }
+
+  /*  span {
+      content: '';
+      z-index: -1;
+      position: absolute;
+      right: 27px;
+      top: -5px;
+      width: 12px;
+      height: 12px;
+      background-color: $primaryColor;
+      border-radius: 50%;
+    } */
+}

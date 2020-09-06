@@ -1,0 +1,93 @@
+@import '../../styles/color.scss';
+
+@font-face {
+  font-family: 'yg-jalnan';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+.main-img-container {
+  position: relative;
+  margin: 0 auto;
+  max-width: 620px;
+  height: 400px;
+  display: flex;
+  justify-content: flex-end;
+
+  img {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+.logo-text-wrapper {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding-top: 93px;
+  h1,
+  span {
+    color: #090909;
+    font-size: 2.9rem;
+    line-height: 1.315em;
+    white-space: nowrap;
+    font-weight: 700;
+    font-family: 'yg-jalnan';
+  }
+
+  span {
+    color: $primaryColor;
+  }
+
+  p {
+    line-height: 1.75em;
+    font-family: Apple SD Gothic Neo;
+    font-size: 16px;
+    margin: 0px;
+    white-space: nowrap;
+    color: #868688;
+  }
+}
+
+@mixin calculatorMenu($backgroundColor, $textColor) {
+  position: relative;
+  padding: 32px 30px;
+  margin-right: 20px;
+  background-color: $backgroundColor;
+  width: 220px;
+  height: 300px;
+  border-radius: 14px;
+  box-shadow: hsla(240, 3.1%, 87.5%, 0.65) 0px 30px 20px -10px;
+
+  h2,
+  span {
+    color: #090909;
+    font-size: 2.15rem;
+    line-height: 1.35em;
+    font-family: 'yg-jalnan';
+  }
+
+  span {
+    color: $textColor;
+  }
+}
+.calculator-menu-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 80px 0px 110px;
+
+  .food-calculator-menu {
+    @include calculatorMenu(#fefaee, #4e7f1c);
+  }
+  .recommend-calculator-menu {
+    @include calculatorMenu(#f7f4ff, #5843be);
+  }
+  .bmi-calculator-menu {
+    @include calculatorMenu(#ecf6ff, #3b74c8);
+  }
+  .age-calculator-menu {
+    @include calculatorMenu(#fff3e5, #f29833);
+  }
+}

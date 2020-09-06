@@ -4,7 +4,7 @@ import Widgets from './Widgets'
 import CorporationInfo from './CorporationInfo'
 const Footer: React.FC = () => {
   return (
-    <footer>
+    <footer className="home-footer">
       <div className="footer-inner">
         <Widgets />
         <CorporationInfo />

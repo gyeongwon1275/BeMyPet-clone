@@ -1,5 +1,6 @@
 import * as React from 'react'
 import './TopNavList.scss'
+import { Link } from 'react-router-dom'
 const TopNavList: React.FC = () => {
   return (
     <div className="link-menu-wrapper">
@@ -10,10 +11,9 @@ const TopNavList: React.FC = () => {
           </a>
         </li>
         <li>
-          <a href="https://tools.mypetlife.co.kr/" rel="noreferrer nofollow">
-            툴즈
-          </a>
+          <Link to="/tool">툴즈</Link>
         </li>
+
         <li>
           <a href="https://mypetlife.co.kr/cbh/" rel="noreferrer nofollow">
             동물등록
