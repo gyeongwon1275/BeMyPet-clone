@@ -50,5 +50,8 @@ module.exports = {
     contentBase: './',
     // 정적파일을 제공하는 곳이 dist 폴더이므로
     publicPath: '/dist',
+    // url 에 주소를 직접입력해도 렌더링 되도록 설정
+    // hitory api 를 사용할 수 있도록 설정함
+    historyApiFallback: true,
   },
 }

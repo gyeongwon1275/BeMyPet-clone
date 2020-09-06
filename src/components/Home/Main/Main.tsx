@@ -1,5 +1,5 @@
 import * as React from 'react'
-import './Container.scss'
+import './Main.scss'
 import PostList from './PostList'
 import PreimumSeries from './PreimumSeries'
 import {
@@ -11,7 +11,7 @@ import {
   catMood,
 } from './dummydata'
 
-const Container: React.FC = () => {
+const Main: React.FC = () => {
   return (
     <div className="main-container">
       <h3 className="popular-title">인기 콘텐츠</h3>
@@ -43,4 +43,4 @@ const Container: React.FC = () => {
   )
 }
 
-export default Container
+export default Main

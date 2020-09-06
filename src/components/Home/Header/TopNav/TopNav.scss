@@ -1,6 +1,6 @@
 // position : relative -> 가장 가까운 블럭, or 자체적으로 컨테이닝블록 형성
 // position : absolute -> 부모요소중 컨테이닝블록 요소 기준으로 이동
-@import '../../styles/color.scss';
+@import '../../../styles/color.scss';
 
 .top-nav {
   background-color: $primaryColor;
