@@ -7,7 +7,7 @@ const Home: React.FC = () => {
       <div className="main-img-container">
         <div className="logo-text-wrapper">
           <h1>
-            <span>비마이펫 </span>
+            <span className="home-logo-span">비마이펫 </span>
             툴즈
           </h1>
           <p>우리 아이를 위한 계산기, 가이드라인 모음</p>

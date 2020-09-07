@@ -1,20 +1,16 @@
 import * as React from 'react'
 import Nav from './Header/Nav'
 import Main from './Main/Main'
-import { Route, Switch, BrowserRouter } from 'react-router-dom'
-import Home from './Main/Home'
+import { BrowserRouter } from 'react-router-dom'
+
 import Footer from './Footer/Footer'
+import './Tool.scss'
 const Tool: React.FC = () => {
   return (
     <>
       <BrowserRouter>
         <Nav />
-        <main>
-          <Switch>
-            <Route exact path="/tool/" component={Home} />
-            <Main />
-          </Switch>
-        </main>
+        <Main />
         <Footer />
       </BrowserRouter>
     </>

@@ -1,55 +1,5 @@
 @import '../../styles/color.scss';
 
-@font-face {
-  font-family: 'yg-jalnan';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff')
-    format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-.main-img-container {
-  position: relative;
-  margin: 0 auto;
-  max-width: 620px;
-  height: 400px;
-  display: flex;
-  justify-content: flex-end;
-
-  img {
-    width: 400px;
-    height: 400px;
-  }
-}
-
-.logo-text-wrapper {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  padding-top: 93px;
-  h1,
-  span {
-    color: #090909;
-    font-size: 2.9rem;
-    line-height: 1.315em;
-    white-space: nowrap;
-    font-weight: 700;
-    font-family: 'yg-jalnan';
-  }
-
-  span {
-    color: $primaryColor;
-  }
-
-  p {
-    line-height: 1.75em;
-    font-family: Apple SD Gothic Neo;
-    font-size: 16px;
-    margin: 0px;
-    white-space: nowrap;
-    color: #868688;
-  }
-}
-
 @mixin calculatorMenu($backgroundColor, $textColor) {
   position: relative;
   padding: 32px 30px;
