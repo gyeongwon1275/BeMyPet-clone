@@ -71,6 +71,27 @@
   span {
     color: $textColor;
   }
+
+  button {
+    border: none;
+    outline: none;
+    font-family: 'yg-jalnan';
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background-color: $textColor;
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    color: white;
+    font-size: 25px;
+  }
+
+  &:hover {
+    transition: 0.2s ease-in;
+    transform: scale(1.05);
+    cursor: pointer;
+  }
 }
 .calculator-menu-container {
   width: 100%;

@@ -5,16 +5,6 @@ import { Route, Switch, BrowserRouter } from 'react-router-dom'
 import Home from './Main/Home'
 import Footer from './Footer/Footer'
 const Tool: React.FC = () => {
-  // const match = useRouteMatch<{ name: string }>()
-  /* 
-  TODO: 
-
-  메인로고 -> 컴포넌트화 
-  메인 CONTENT -> 컴포넌트화 
-  */
-
-  // console.log('match', match)
-
   return (
     <>
       <BrowserRouter>
@@ -22,11 +12,7 @@ const Tool: React.FC = () => {
         <main>
           <Switch>
             <Route exact path="/tool/" component={Home} />
-            <Route
-              exact
-              path="/tool/:name"
-              render={(props) => <Main {...props} />}
-            />
+            <Main />
           </Switch>
         </main>
         <Footer />

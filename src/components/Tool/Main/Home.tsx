@@ -1,5 +1,6 @@
 import * as React from 'react'
 import './Home.scss'
+import { Link } from 'react-router-dom'
 const Home: React.FC = () => {
   return (
     <>
@@ -21,6 +22,9 @@ const Home: React.FC = () => {
             <br />
             계산기
           </h2>
+          <Link to="/tool/foodCalorie">
+            <button>{`>`}</button>
+          </Link>
         </div>
         <div className="recommend-calculator-menu">
           <h2>
@@ -28,6 +32,9 @@ const Home: React.FC = () => {
             <br />
             계산기
           </h2>
+          <Link to="/tool/recommendCalorie">
+            <button>{`>`}</button>
+          </Link>
         </div>
         <div className="bmi-calculator-menu">
           <h2>
@@ -35,6 +42,9 @@ const Home: React.FC = () => {
             <br />
             계산기
           </h2>
+          <Link to="/tool/bmi">
+            <button>{`>`}</button>
+          </Link>
         </div>
         <div className="age-calculator-menu">
           <h2>
@@ -42,6 +52,9 @@ const Home: React.FC = () => {
             <br />
             계산기
           </h2>
+          <Link to="/tool/age">
+            <button>{`>`}</button>
+          </Link>
         </div>
       </div>
     </>

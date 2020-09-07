@@ -1,25 +1,27 @@
+@mixin changeIconColor($iconColor) {
+  color: $iconColor !important;
+  transition: 0.3s ease-in-out;
+  transform: scale(1.3);
+  cursor: pointer;
+}
+
 .sns-menu-wrapper {
   i {
-    transition: 0.3s;
     font-size: 1.5rem;
   }
   .fa-facebook:hover {
-    font-size: 2rem;
-    color: #3b5998 !important;
+    @include changeIconColor(#3b5998);
   }
 
   .fa-instagram:hover {
-    font-size: 2rem;
-    color: #c13584 !important;
+    @include changeIconColor(#c13584);
   }
 
   .fa-youtube-play:hover {
-    font-size: 2rem;
-    color: #c31a1e !important;
+    @include changeIconColor(#c31a1e);
   }
 
   .fa-android:hover {
-    font-size: 2rem;
-    color: #82c91e !important;
+    @include changeIconColor(#82c91e);
   }
 }
