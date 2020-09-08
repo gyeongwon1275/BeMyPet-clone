@@ -12,7 +12,9 @@ const App: React.FC = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/tool" component={Tool} />
+        <Route exact path="/tool">
+          <Tool />
+        </Route>
       </Switch>
     </BrowserRouter>
   )

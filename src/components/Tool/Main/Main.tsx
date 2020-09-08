@@ -1,12 +1,12 @@
 import * as React from 'react'
-import Age from './Age'
-import BMI from './BMI'
-import FoodCalorie from './FoodCalorie'
-import RecommendCalorie from './RecommendCalorie'
+import Age from './Age/Age'
+import BMI from './BMI/BMI'
+import FoodCalorie from './FoodCalorie/FoodCalorie'
+import RecommendCalorie from './RecommendCalorie/RecommendCalorie'
 
 import Home from './Home'
 import { Route, Switch } from 'react-router-dom'
-const Main: React.FC = () => {
+function Main() {
   return (
     <main>
       <Switch>

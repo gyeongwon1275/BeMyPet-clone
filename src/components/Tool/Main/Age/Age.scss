@@ -1,0 +1,115 @@
+@import '../../../styles/color.scss';
+
+.age-calculator-container {
+  display: flex;
+  justify-content: center;
+  padding: 80px 0px;
+  background-color: #f6f7f8;
+}
+
+.age-wrapper-form {
+  padding: 60px 50px;
+  width: 620px;
+  background-color: white;
+  border-radius: 14px;
+  box-shadow: #dedee0a6 0px 12px 25px -20px;
+}
+
+.select-animal-wrapper {
+  display: flex;
+  margin-bottom: 32px;
+  width: 100%;
+
+  /* 
+  flex-wrap property는 flex-item 요소들이 강제로 한줄에 배치되게 할 것인지, 또는 가능한 영역 내에서 벗어나지 않고 여러행으로 나누어 표현 할 것인지 결정하는 속성입니다.
+  */
+}
+
+.animal-select-label {
+  width: 160px;
+  font-weight: bold;
+  padding: 10px 0px;
+  white-space: pre-line;
+  font-family: 'yg-jalnan';
+  font-size: 16px;
+  line-height: 1.75;
+  letter-spacing: -0.32px;
+}
+.select-image-wrapper {
+  display: flex;
+  justify-content: space-around;
+  max-width: 360px;
+
+  .unselect-image-box {
+    display: flex;
+    flex-direction: column;
+    width: 170px;
+    height: 150px;
+    border: 5px solid #f6f7f8;
+    border-radius: 10px;
+    margin-right: 20px;
+    background-color: #f6f7f8;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    color: #cfcece;
+  }
+
+  /* 
+  multiply: the element is multiplied by the background and replaces the background color. The resulting color is always as dark as the background.
+  */
+  img {
+    width: 110px;
+    height: 110px;
+    background: transparent;
+    opacity: 0.35;
+    mix-blend-mode: multiply;
+  }
+
+  p {
+    text-align: center;
+    font-weight: bold;
+    font-family: 'yg-jalnan';
+  }
+}
+
+.select-date-wrapper {
+  display: flex;
+  width: 100%;
+}
+.date-input-wrapper {
+  width: 100%;
+  max-width: 360px;
+  text-align: right;
+  height: 48px;
+  border-radius: 14px;
+  background-color: #f6f7f8;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  border: 2px solid transparent;
+
+  input {
+    color: #090909;
+    font-family: 'yg-jalnan';
+    height: 26px;
+    font-size: 14px;
+    outline: none;
+    border: none;
+    width: 100%;
+    background-color: #f6f7f8;
+
+    &::placeholder {
+      opacity: 0.35;
+    }
+  }
+}
+.date-input-icon {
+  padding-right: 10px;
+  padding-left: 21px;
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
