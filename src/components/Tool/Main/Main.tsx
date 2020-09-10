@@ -6,7 +6,7 @@ import RecommendCalorie from './RecommendCalorie/RecommendCalorie'
 
 import Home from './Home'
 import { Route, Switch } from 'react-router-dom'
-function Main() {
+const Main: React.FC = () => {
   return (
     <main>
       <Switch>
