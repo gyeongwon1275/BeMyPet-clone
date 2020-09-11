@@ -1,6 +1,5 @@
 import * as React from 'react'
 import './Age.scss'
-import AgeForm from './AgeForm'
 import AgeFormContainer from './AgeFormContainer'
 const Age: React.FC = () => {
   return (

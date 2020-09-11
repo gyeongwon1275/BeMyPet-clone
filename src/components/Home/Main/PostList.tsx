@@ -38,8 +38,8 @@ const PostList: React.FC<PostMeta> = ({ category, morePost, posts }) => {
           </span>
         </div>
         <div className="post-card-wrapper">
-          {posts.map((data) => (
-            <PostItem title={data.title} img={data.src} />
+          {posts.map((data, index) => (
+            <PostItem key={index} title={data.title} img={data.src} />
           ))}
         </div>
       </div>

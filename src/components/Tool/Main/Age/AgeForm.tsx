@@ -1,5 +1,8 @@
 import * as React from 'react'
-import { AnimalAgeState, animalType } from '../../../../modules/AgeCalculator'
+import {
+  AnimalAgeState,
+  animalType,
+} from '../../../../modules/AgeCalculator/index'
 import { DatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers'
 import DateFnsUtils from '@date-io/date-fns'
 
@@ -10,30 +13,30 @@ interface AgeFormProps {
 
 export function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
   const animalObjct = animalAgeInfo
-  console.log('animalAgeInfo', animalAgeInfo)
   const { type, size, date } = animalAgeInfo
   // TODO
   /* 
-  결과보기 onClick => 함수에서 계산하고 계산되면 결과값을 dispatch 
-  
-  */
-  const [isDog, setOpenDogSize] = React.useState(false)
-  const [isResultOpen, setResultOpen] = React.useState(false)
-  const [selectedDate, handleDateChange] = React.useState<Date | null>(
-    new Date()
-  )
 
+  1> 강아지, 고양이 선택 
+
+  => 강아지 선택했을 때 redux 에서 상태가 변경 
+  => 변경된 것을 다시 받아서 렌더링 => div class 를 type 과 연동을 시켜놓음 
+  // 1> 아무것도 선택 안함
+  // 2> 강아지선택 
+  // 3> 고양이 선택 
+  // type==='dog'? 강아지 노란색
+  결과보기 onClick => 함수에서 계산하고 계산되면 결과값을 dispatch 
+  선택하면 selected box 로 변경
+  */
+
+  // 리덕스 상태를 변경시키면 리렌더링만 안되고 상태는 변경됨
+  //
   const handleAnimalType = React.useCallback(
     (type: animalType) => () => {
-      if (type === 'dog') {
-        setOpenDogSize(true)
-      } else {
-        setOpenDogSize(false)
-      }
       animalObjct['type'] = type
       onInputAgeInfo(animalObjct)
     },
-    [animalAgeInfo, isDog, selectedDate]
+    [animalAgeInfo]
   )
 
   const handleDate = React.useCallback(
@@ -41,7 +44,7 @@ export function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
       animalObjct['date'] = date
       onInputAgeInfo(animalObjct)
     },
-    [animalAgeInfo, isDog, selectedDate]
+    [animalAgeInfo]
   )
 
   const handleDogSize = React.useCallback(
@@ -49,7 +52,7 @@ export function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
       animalObjct['size'] = size
       onInputAgeInfo(animalObjct)
     },
-    [animalAgeInfo, isDog, selectedDate]
+    [animalAgeInfo]
   )
   return (
     <div className="age-calculator-container">
@@ -58,7 +61,9 @@ export function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
           <label className="animal-select-label">반려동물 종류</label>
           <div className="select-image-wrapper">
             <div
-              className="unselect-image-box"
+              className={`${
+                type === 'dog' ? `select-image-box` : `unselect-image-box`
+              }`}
               onClick={handleAnimalType('dog')}
             >
               <img
@@ -68,7 +73,9 @@ export function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
               <p>강아지</p>
             </div>
             <div
-              className="unselect-image-box"
+              className={`${
+                type === 'cat' ? `select-image-box` : `unselect-image-box`
+              }`}
               onClick={handleAnimalType('cat')}
             >
               <img
@@ -100,12 +107,8 @@ export function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
             </div>
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
               <DatePicker
-                value={selectedDate}
-                onChange={(date) => {
-                  handleDate(date)
-
-                  console.log('date', date)
-                }}
+                value={date}
+                onChange={handleDate}
                 format="yyyy년 MM월 dd일"
                 InputProps={{
                   disableUnderline: true,
@@ -114,25 +117,31 @@ export function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
             </MuiPickersUtilsProvider>
           </div>
         </div>
-        {isDog ? (
+        {type === 'dog' ? (
           <div className="select-dogSize-wrapper">
             <label className="animal-select-label">강아지 크기</label>
             <div className="dogSize-radio-button-wrapper">
               <div className="input-radio-wrapper">
-                <label>
+                <label
+                  className={
+                    size === '소형' ? 'selected-dogSize' : 'unselected-dogSize'
+                  }
+                >
                   <input
                     type="radio"
                     name="dogSize"
                     value="소형"
-                    onClick={() => {
-                      console.log('클릭')
-                    }}
+                    onClick={handleDogSize('소형')}
                   />
                   소형견
                 </label>
               </div>
               <div className="input-radio-wrapper">
-                <label>
+                <label
+                  className={
+                    size === '중형' ? 'selected-dogSize' : 'unselected-dogSize'
+                  }
+                >
                   <input
                     type="radio"
                     name="dogSize"
@@ -143,7 +152,11 @@ export function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
                 </label>
               </div>
               <div className="input-radio-wrapper">
-                <label>
+                <label
+                  className={
+                    size === '대형' ? 'selected-dogSize' : 'unselected-dogSize'
+                  }
+                >
                   <input
                     type="radio"
                     name="dogSize"
