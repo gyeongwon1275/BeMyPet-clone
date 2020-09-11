@@ -6,6 +6,8 @@ export interface AnimalAgeState {
   type: animalType
   size?: animalSizeType
   date: Date | null
+  result: boolean
+  age: number | null
 }
 
 export type CalculatorAction = ActionType<typeof actions>

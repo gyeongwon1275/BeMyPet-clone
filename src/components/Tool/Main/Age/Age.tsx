@@ -1,7 +1,18 @@
 import * as React from 'react'
 import './Age.scss'
 import AgeFormContainer from './AgeFormContainer'
+import AgeResult from './AgeResult'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../../../modules'
 const Age: React.FC = () => {
+  const { type, result, age } = useSelector(
+    (state: RootState) => state.AgeCalculator
+  )
+
+  /* 
+  age 에서 ageresult 로 age 를 보내주면 됨 
+  ageform 에서는 상태변경 
+   */
   return (
     <>
       <div className="main-img-container">
@@ -20,6 +31,11 @@ const Age: React.FC = () => {
         <img src="https://tools.mypetlife.co.kr/static/media/ageMain.cd3a6905.png" />
       </div>
       <AgeFormContainer />
+      {result ? (
+        <AgeResult age={age} animal={type === 'dog' ? '강아지' : '고양이'} />
+      ) : (
+        <></>
+      )}
     </>
   )
 }

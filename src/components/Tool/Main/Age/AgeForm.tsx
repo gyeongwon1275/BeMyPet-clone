@@ -7,6 +7,7 @@ import {
 import { DatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers'
 import DateFnsUtils from '@date-io/date-fns'
 import AgeUtils from './AgeUtils'
+
 interface AgeFormProps {
   animalAgeInfo: AnimalAgeState
   onInputAgeInfo: (ageInfoObject: AnimalAgeState) => void
@@ -15,6 +16,7 @@ interface AgeFormProps {
 export function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
   const animalObjct = animalAgeInfo
   const { type, size, date } = animalAgeInfo
+
   // TODO
   /* 
 
@@ -34,8 +36,9 @@ export function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
   //
   const handleAnimalType = React.useCallback(
     (type: animalType) => () => {
-      animalObjct['type'] = type
-      animalObjct['size'] = null
+      animalObjct.type = type
+      animalObjct.size = null
+      animalObjct.result = false
       onInputAgeInfo(animalObjct)
     },
     [animalAgeInfo]
@@ -61,8 +64,37 @@ export function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault()
 
-      console.log('개', new AgeUtils(type, date, size).getDogAge())
-      console.log('고양이', new AgeUtils(type, date, size).getCatAge())
+      if (!type || !date) {
+        alert('값을 입력하거나 선택해주셔야 합니다.')
+      }
+
+      if (type === 'dog' && !size) {
+        alert('강아지 크기를 선택해주셔야 합니다.')
+      }
+
+      if (size) {
+        let dogAge = new AgeUtils(
+          type,
+          date,
+          true,
+          null,
+          size
+        ).getDogAge() as number
+
+        animalObjct.age = dogAge
+        animalObjct.result = true
+        onInputAgeInfo(animalObjct)
+      } else {
+        animalObjct['age'] = new AgeUtils(
+          type,
+          date,
+          true,
+          null,
+          null
+        ).getCatAge() as number
+        animalObjct.result = true
+        onInputAgeInfo(animalObjct)
+      }
     },
     [animalAgeInfo]
   )
@@ -123,6 +155,7 @@ export function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
                 onChange={handleDate}
                 format="yyyy년 MM월 dd일"
                 InputProps={{
+                  placeholder: 'xxxx년 xx월 xx일',
                   disableUnderline: true,
                 }}
               />

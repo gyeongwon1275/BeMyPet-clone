@@ -8,10 +8,10 @@ import {
 import AgeForm from './AgeForm'
 
 function AgeFormContainer() {
-  const { type, size, date } = useSelector(
+  const { type, size, date, result, age } = useSelector(
     (state: RootState) => state.AgeCalculator
   )
-  const animalAgeInfo = { type, size, date }
+  const animalAgeInfo = { type, size, date, result, age }
   const dispatch = useDispatch()
 
   const onInputAgeInfo = (ageInfoObject: AnimalAgeState) => {

@@ -1,0 +1,44 @@
+@import '../../../styles/color.scss';
+
+.age-result-container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 0;
+}
+
+.age-result-wrapper {
+  text-align: center;
+  background-color: #fff3e5;
+  border-radius: 14px;
+  width: 620px;
+  padding: 50px 40px;
+  box-shadow: rgba(222, 222, 224, 0.65) 0px 12px 25px -20px;
+  color: #868688;
+  line-height: 1.75em;
+
+  & > h4 {
+    color: #090909;
+    font-size: 16px;
+    line-height: 1.416em;
+    font-family: 'yg-jalnan';
+    margin: 0px;
+  }
+
+  span {
+    white-space: nowrap;
+    font-size: 28px;
+    line-height: 38px;
+    color: #f29833;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.75em;
+    font-family: 'Apple SD Gothic Neo';
+  }
+}

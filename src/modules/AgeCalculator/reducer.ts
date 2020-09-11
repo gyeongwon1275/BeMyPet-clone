@@ -5,7 +5,9 @@ import { INPUT_AGEINFO } from './actions'
 const initialState: AnimalAgeState = {
   type: null,
   size: null,
-  date: new Date(),
+  date: null,
+  result: false,
+  age: null,
 }
 
 export default createReducer<AnimalAgeState>(initialState, {

@@ -21,11 +21,21 @@ TODO
 export default class AgeUtils implements AnimalAgeState {
   type: animalType
   date: Date | null
+  result: boolean
+  age: number | null
   size?: animalSizeType
-  constructor(type: animalType, date: Date | null, size?: animalSizeType) {
+  constructor(
+    type: animalType,
+    date: Date | null,
+    result: boolean,
+    age: number | null,
+    size?: animalSizeType
+  ) {
     this.type = type
     this.date = date
     this.size = size
+    this.result = result
+    this.age = age
   }
 
   getdays(): number {
