@@ -2,10 +2,11 @@ import * as React from 'react'
 import {
   AnimalAgeState,
   animalType,
+  animalSizeType,
 } from '../../../../modules/AgeCalculator/index'
 import { DatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers'
 import DateFnsUtils from '@date-io/date-fns'
-
+import AgeUtils from './AgeUtils'
 interface AgeFormProps {
   animalAgeInfo: AnimalAgeState
   onInputAgeInfo: (ageInfoObject: AnimalAgeState) => void
@@ -34,6 +35,7 @@ export function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
   const handleAnimalType = React.useCallback(
     (type: animalType) => () => {
       animalObjct['type'] = type
+      animalObjct['size'] = null
       onInputAgeInfo(animalObjct)
     },
     [animalAgeInfo]
@@ -48,15 +50,25 @@ export function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
   )
 
   const handleDogSize = React.useCallback(
-    (size: string | null) => () => {
+    (size: animalSizeType | null) => () => {
       animalObjct['size'] = size
       onInputAgeInfo(animalObjct)
     },
     [animalAgeInfo]
   )
+
+  const getAnimalAge = React.useCallback(
+    (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault()
+
+      console.log('개', new AgeUtils(type, date, size).getDogAge())
+      console.log('고양이', new AgeUtils(type, date, size).getCatAge())
+    },
+    [animalAgeInfo]
+  )
   return (
     <div className="age-calculator-container">
-      <form className="age-wrapper-form">
+      <form className="age-wrapper-form" onSubmit={getAnimalAge}>
         <div className="select-animal-wrapper">
           <label className="animal-select-label">반려동물 종류</label>
           <div className="select-image-wrapper">
