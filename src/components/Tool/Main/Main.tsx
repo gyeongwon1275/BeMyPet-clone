@@ -1,11 +1,12 @@
 import * as React from 'react'
 import Age from './Age/Age'
-import BMI from './BMI/BMI'
+
 import FoodCalorie from './FoodCalorie/FoodCalorie'
 import RecommendCalorie from './RecommendCalorie/RecommendCalorie'
 
 import Home from './Home'
 import { Route, Switch } from 'react-router-dom'
+import Bmi from './Bmi/Bmi'
 const Main: React.FC = () => {
   return (
     <main>
@@ -18,7 +19,7 @@ const Main: React.FC = () => {
           <RecommendCalorie />
         </Route>
         <Route exact path="/tool/bmi">
-          <BMI />
+          <Bmi />
         </Route>
         <Route exact path="/tool/age">
           <Age />

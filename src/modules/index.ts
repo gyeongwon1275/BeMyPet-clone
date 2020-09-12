@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
-import AgeCalculator from './AgeCalculator/'
+import calculator from './calculator'
 
-const rootReducer = combineReducers({ AgeCalculator })
+const rootReducer = combineReducers({ calculator })
 
 export default rootReducer
 

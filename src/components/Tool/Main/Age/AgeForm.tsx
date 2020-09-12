@@ -1,21 +1,20 @@
 import * as React from 'react'
 import {
-  AnimalAgeState,
   animalType,
   animalSizeType,
-} from '../../../../modules/AgeCalculator/index'
+  AgeState,
+} from '../../../../modules/calculator/index'
 import { DatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers'
 import DateFnsUtils from '@date-io/date-fns'
 import AgeUtils from './AgeUtils'
 
 interface AgeFormProps {
-  animalAgeInfo: AnimalAgeState
-  onInputAgeInfo: (ageInfoObject: AnimalAgeState) => void
+  animalAgeInfo: AgeState
+  onInputAgeInfo: (ageInfoObject: AgeState) => void
 }
 
-export function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
-  const animalObjct = animalAgeInfo
-  const { type, size, date } = animalAgeInfo
+function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
+  const ageInfoObjct = animalAgeInfo
 
   // TODO
   /* 
@@ -36,26 +35,26 @@ export function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
   //
   const handleAnimalType = React.useCallback(
     (type: animalType) => () => {
-      animalObjct.type = type
-      animalObjct.size = null
-      animalObjct.result = false
-      onInputAgeInfo(animalObjct)
+      ageInfoObjct.type = type
+      ageInfoObjct.size = null
+      ageInfoObjct.result = false
+      onInputAgeInfo(ageInfoObjct)
     },
     [animalAgeInfo]
   )
 
   const handleDate = React.useCallback(
     (date: Date | null) => {
-      animalObjct['date'] = date
-      onInputAgeInfo(animalObjct)
+      ageInfoObjct['date'] = date
+      onInputAgeInfo(ageInfoObjct)
     },
     [animalAgeInfo]
   )
 
   const handleDogSize = React.useCallback(
     (size: animalSizeType | null) => () => {
-      animalObjct['size'] = size
-      onInputAgeInfo(animalObjct)
+      ageInfoObjct['size'] = size
+      onInputAgeInfo(ageInfoObjct)
     },
     [animalAgeInfo]
   )
@@ -64,36 +63,34 @@ export function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault()
 
-      if (!type || !date) {
+      if (!animalAgeInfo.type || !animalAgeInfo.date) {
         alert('값을 입력하거나 선택해주셔야 합니다.')
       }
 
-      if (type === 'dog' && !size) {
+      if (animalAgeInfo.type === 'dog' && !animalAgeInfo.size) {
         alert('강아지 크기를 선택해주셔야 합니다.')
       }
 
-      if (size) {
+      if (animalAgeInfo.size) {
         let dogAge = new AgeUtils(
-          type,
-          date,
-          true,
+          animalAgeInfo.type,
+          animalAgeInfo.date,
           null,
-          size
+          animalAgeInfo.size
         ).getDogAge() as number
 
-        animalObjct.age = dogAge
-        animalObjct.result = true
-        onInputAgeInfo(animalObjct)
+        ageInfoObjct.age = dogAge
+        ageInfoObjct.result = true
+        onInputAgeInfo(ageInfoObjct)
       } else {
-        animalObjct['age'] = new AgeUtils(
-          type,
-          date,
-          true,
+        ageInfoObjct['age'] = new AgeUtils(
+          animalAgeInfo.type,
+          animalAgeInfo.date,
           null,
           null
         ).getCatAge() as number
-        animalObjct.result = true
-        onInputAgeInfo(animalObjct)
+        ageInfoObjct.result = true
+        onInputAgeInfo(ageInfoObjct)
       }
     },
     [animalAgeInfo]
@@ -106,7 +103,9 @@ export function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
           <div className="select-image-wrapper">
             <div
               className={`${
-                type === 'dog' ? `select-image-box` : `unselect-image-box`
+                animalAgeInfo.type === 'dog'
+                  ? `select-image-box`
+                  : `unselect-image-box`
               }`}
               onClick={handleAnimalType('dog')}
             >
@@ -118,7 +117,9 @@ export function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
             </div>
             <div
               className={`${
-                type === 'cat' ? `select-image-box` : `unselect-image-box`
+                animalAgeInfo.type === 'cat'
+                  ? `select-image-box`
+                  : `unselect-image-box`
               }`}
               onClick={handleAnimalType('cat')}
             >
@@ -151,7 +152,7 @@ export function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
             </div>
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
               <DatePicker
-                value={date}
+                value={animalAgeInfo.date}
                 onChange={handleDate}
                 format="yyyy년 MM월 dd일"
                 InputProps={{
@@ -162,14 +163,16 @@ export function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
             </MuiPickersUtilsProvider>
           </div>
         </div>
-        {type === 'dog' ? (
+        {animalAgeInfo.type === 'dog' ? (
           <div className="select-dogSize-wrapper">
             <label className="animal-select-label">강아지 크기</label>
             <div className="dogSize-radio-button-wrapper">
               <div className="input-radio-wrapper">
                 <label
                   className={
-                    size === '소형' ? 'selected-dogSize' : 'unselected-dogSize'
+                    animalAgeInfo.size === '소형'
+                      ? 'selected-dogSize'
+                      : 'unselected-dogSize'
                   }
                 >
                   <input
@@ -184,7 +187,9 @@ export function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
               <div className="input-radio-wrapper">
                 <label
                   className={
-                    size === '중형' ? 'selected-dogSize' : 'unselected-dogSize'
+                    animalAgeInfo.size === '중형'
+                      ? 'selected-dogSize'
+                      : 'unselected-dogSize'
                   }
                 >
                   <input
@@ -199,7 +204,9 @@ export function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
               <div className="input-radio-wrapper">
                 <label
                   className={
-                    size === '대형' ? 'selected-dogSize' : 'unselected-dogSize'
+                    animalAgeInfo.size === '대형'
+                      ? 'selected-dogSize'
+                      : 'unselected-dogSize'
                   }
                 >
                   <input

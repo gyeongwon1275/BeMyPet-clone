@@ -4,9 +4,9 @@ import AgeFormContainer from './AgeFormContainer'
 import AgeResult from './AgeResult'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../../../modules'
-const Age: React.FC = () => {
+function Age() {
   const { type, result, age } = useSelector(
-    (state: RootState) => state.AgeCalculator
+    (state: RootState) => state.calculator.age
   )
 
   /* 

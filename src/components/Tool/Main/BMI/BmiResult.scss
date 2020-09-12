@@ -1,0 +1,52 @@
+.bmi-result-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  -webkit-box-align: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 80px;
+
+  & > h2,
+  span {
+    color: rgb(9, 9, 9);
+    font-size: 28px;
+    line-height: 1.35em;
+    font-family: 'yg-jalnan';
+    margin: 0px;
+  }
+
+  span {
+    color: #3c74c8;
+  }
+}
+
+.bmi-result-wrapper {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 80px;
+  background-color: #ecf6ff;
+  border-radius: 14px;
+  width: 620px;
+  padding: 50px 40px;
+  box-shadow: rgba(222, 222, 224, 0.65) 0px 12px 25px -20px;
+  color: #868688;
+  line-height: 1.75em;
+
+  & > h4 {
+    color: #090909;
+    font-size: 16px;
+    line-height: 1.416em;
+    font-family: 'yg-jalnan';
+    margin: 0px;
+  }
+
+  & > h2 {
+    color: #3b74c8;
+    font-size: 28px;
+    line-height: 1.35em;
+    font-family: 'yg-jalnan';
+    margin: 8px 0px 0px;
+    text-align: center;
+  }
+}

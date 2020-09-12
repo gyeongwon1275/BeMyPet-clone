@@ -1,20 +1,17 @@
 import * as React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '../../../../modules'
-import {
-  inputAgeInfo,
-  AnimalAgeState,
-} from '../../../../modules/AgeCalculator/index'
+import { inputAgeInfo, AgeState } from '../../../../modules/calculator/index'
 import AgeForm from './AgeForm'
 
 function AgeFormContainer() {
   const { type, size, date, result, age } = useSelector(
-    (state: RootState) => state.AgeCalculator
+    (state: RootState) => state.calculator.age
   )
   const animalAgeInfo = { type, size, date, result, age }
   const dispatch = useDispatch()
 
-  const onInputAgeInfo = (ageInfoObject: AnimalAgeState) => {
+  const onInputAgeInfo = (ageInfoObject: AgeState) => {
     dispatch(inputAgeInfo(ageInfoObject))
   }
   return (

@@ -1,8 +1,7 @@
 import {
-  AnimalAgeState,
   animalSizeType,
   animalType,
-} from '../../../../modules/AgeCalculator/types'
+} from '../../../../modules/calculator/types'
 
 /* 
 TODO
@@ -18,24 +17,21 @@ TODO
 
 */
 
-export default class AgeUtils implements AnimalAgeState {
+export default class AgeUtils {
   type: animalType
   date: Date | null
-  result: boolean
   age: number | null
   size?: animalSizeType
   constructor(
     type: animalType,
     date: Date | null,
-    result: boolean,
     age: number | null,
     size?: animalSizeType
   ) {
     this.type = type
     this.date = date
-    this.size = size
-    this.result = result
     this.age = age
+    this.size = size
   }
 
   getdays(): number {

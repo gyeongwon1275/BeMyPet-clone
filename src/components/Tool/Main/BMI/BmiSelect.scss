@@ -1,0 +1,59 @@
+@import '../../../styles/color.scss';
+
+.bmi-select-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  & > label {
+    width: 160px;
+    font-weight: bold;
+    padding: 10px 0px;
+    white-space: pre-line;
+    font-family: 'yg-jalnan';
+    font-size: 16px;
+    line-height: 1.75;
+    letter-spacing: -0.32px;
+  }
+
+  .bmi-img-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 360px;
+
+    .unselect-image-box,
+    .select-image-box {
+      border-radius: 10px;
+      background-color: #f6f7f8;
+
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      width: 110px;
+      height: 110px;
+      color: #cfcece;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+
+    img {
+      width: 110px;
+      height: 110px;
+      background: transparent;
+      opacity: 0.35;
+      mix-blend-mode: multiply;
+    }
+  }
+
+  .select-image-box {
+    border: 5px solid $primaryColor;
+    background-color: white;
+    color: #090909;
+    & > img {
+      opacity: 1;
+    }
+  }
+
+  .unselect-image-box {
+    border: 5px solid #f6f7f8;
+  }
+}
