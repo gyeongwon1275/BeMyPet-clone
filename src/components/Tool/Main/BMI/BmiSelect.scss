@@ -1,18 +1,9 @@
 @import '../../../styles/color.scss';
-
+@import '../UIcomponents/UIstyles.scss';
 .bmi-select-wrapper {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
+  @include selectAnimalWrapper();
   & > label {
-    width: 160px;
-    font-weight: bold;
-    padding: 10px 0px;
-    white-space: pre-line;
-    font-family: 'yg-jalnan';
-    font-size: 16px;
-    line-height: 1.75;
-    letter-spacing: -0.32px;
+    @include animalSelectLabel();
   }
 
   .bmi-img-wrapper {

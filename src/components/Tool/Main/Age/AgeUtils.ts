@@ -61,7 +61,7 @@ export default class AgeUtils {
   }
 
   getCatAge(): number | void {
-    if ((this.type = 'cat')) {
+    if ((this.type = '고양이')) {
       let days = this.getdays()
       let adultCoefficient = 4
       let childCoefficient = 12.5

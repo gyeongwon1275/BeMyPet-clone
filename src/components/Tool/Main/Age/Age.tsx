@@ -31,11 +31,7 @@ function Age() {
         <img src="https://tools.mypetlife.co.kr/static/media/ageMain.cd3a6905.png" />
       </div>
       <AgeFormContainer />
-      {result ? (
-        <AgeResult age={age} animal={type === 'dog' ? '강아지' : '고양이'} />
-      ) : (
-        <></>
-      )}
+      {result ? <AgeResult age={age} animal={type} /> : <></>}
     </>
   )
 }

@@ -1,10 +1,10 @@
 import * as React from 'react'
+import { animalType } from '../../../../modules/calculator'
 import './AgeResult.scss'
 
-type animalInKorean = '강아지' | '고양이'
 interface AgeResult {
   age: number | null
-  animal: animalInKorean
+  animal: animalType
 }
 function AgeResult({ age, animal }: AgeResult) {
   return (

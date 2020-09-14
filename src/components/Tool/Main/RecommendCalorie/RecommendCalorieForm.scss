@@ -1,0 +1,105 @@
+@import '../UIcomponents/UIstyles.scss';
+@import '../../../styles/color.scss';
+
+.input-wrapper {
+  & > input {
+    text-align: right;
+  }
+
+  .unit-wrapper {
+    text-align: right;
+    width: 26px;
+    height: 26px;
+    font-family: 'yg-jalnan';
+    font-size: 14px;
+    line-height: 1.86;
+    color: #090909;
+  }
+}
+
+.status-choose-wrapper {
+  position: relative;
+  font-family: 'yg-jalnan';
+  font-size: 14px;
+  width: 100%;
+  max-width: 360px;
+}
+@mixin statusBox {
+  display: flex;
+  background-color: #f6f7f8;
+  border-radius: 14px;
+  &:hover {
+    cursor: pointer;
+  }
+  & > div {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    font-family: 'yg-jalnan';
+    height: 48px;
+    align-items: center;
+    color: #cfcece;
+
+    padding-right: 21px;
+  }
+  p {
+    font-size: 14px;
+  }
+  i {
+    font-size: 20px;
+    padding-left: 21px;
+  }
+}
+.unselected-status-wrapper {
+  /*  &:hover {
+    cursor: not-allowed;
+    type 없으면 클릭해도 아무 변화가 생기지 않도록 해야 함 
+  } */
+  @include statusBox();
+}
+.status-placeholder {
+  color: #090909 !important;
+}
+.selected-status-wrapper {
+  @include statusBox();
+  background-color: white;
+  border-radius: 14px 14px 0px 0px;
+  border-top: 2px solid rgb(252, 209, 30);
+  border-right: 2px solid rgb(252, 209, 30);
+  border-left: 2px solid rgb(252, 209, 30);
+}
+.choice-list-wrapper {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+
+  .choice-item {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    border-right: 2px solid rgb(252, 209, 30);
+    border-left: 2px solid rgb(252, 209, 30);
+    &:hover {
+      background-color: rgb(255, 235, 153);
+    }
+    & > p {
+      margin: 0px;
+      display: flex;
+      -webkit-box-pack: end;
+      justify-content: flex-end;
+      -webkit-box-align: center;
+      align-items: center;
+      width: 100%;
+      text-align: right;
+      padding: 11px 60px 11px 17px;
+      color: inherit;
+      font-size: 14px;
+    }
+  }
+
+  .choice-item:last-child {
+    border-bottom: 2px solid rgb(252, 209, 30);
+    border-radius: 0px 0px 14px 14px;
+  }
+}

@@ -7,8 +7,6 @@ function BmiResult() {
     (state: RootState) => state.calculator.bmi
   )
 
-  // const animalBmiInfo = { type, bmi,result  }
-
   const getBmiResultText = React.useCallback(
     (index) => {
       const bmiResult: string[] = [
@@ -16,9 +14,7 @@ function BmiResult() {
         '조금 더 많이 밥을 줘도 괜찮아요.',
         '적정 체중이네요. 아주 좋아요!',
         '살짝 비만이 걱정됩니다. 관리해주세요.',
-        `비만이 걱정됩니다. 비마이펫 라이프에서 "${
-          type === 'dog' ? '강아지' : '고양이'
-        } 비만"을 검색해보세요.`,
+        `비만이 걱정됩니다. 비마이펫 라이프에서 "${type} 비만"을 검색해보세요.`,
       ]
 
       return bmiResult[index - 1]

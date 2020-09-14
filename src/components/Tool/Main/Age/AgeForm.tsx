@@ -67,7 +67,7 @@ function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
         alert('값을 입력하거나 선택해주셔야 합니다.')
       }
 
-      if (animalAgeInfo.type === 'dog' && !animalAgeInfo.size) {
+      if (animalAgeInfo.type === '강아지' && !animalAgeInfo.size) {
         alert('강아지 크기를 선택해주셔야 합니다.')
       }
 
@@ -96,18 +96,18 @@ function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
     [animalAgeInfo]
   )
   return (
-    <div className="age-calculator-container">
-      <form className="age-wrapper-form" onSubmit={getAnimalAge}>
+    <div className="calculator-container">
+      <form className="calculator-form" onSubmit={getAnimalAge}>
         <div className="select-animal-wrapper">
           <label className="animal-select-label">반려동물 종류</label>
           <div className="select-image-wrapper">
             <div
               className={`${
-                animalAgeInfo.type === 'dog'
+                animalAgeInfo.type === '강아지'
                   ? `select-image-box`
                   : `unselect-image-box`
               }`}
-              onClick={handleAnimalType('dog')}
+              onClick={handleAnimalType('강아지')}
             >
               <img
                 alt="select-dog"
@@ -117,11 +117,11 @@ function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
             </div>
             <div
               className={`${
-                animalAgeInfo.type === 'cat'
+                animalAgeInfo.type === '고양이'
                   ? `select-image-box`
                   : `unselect-image-box`
               }`}
-              onClick={handleAnimalType('cat')}
+              onClick={handleAnimalType('고양이')}
             >
               <img
                 alt="select-cat"
@@ -131,9 +131,9 @@ function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
             </div>
           </div>
         </div>
-        <div className="select-date-wrapper">
+        <div className="input-container">
           <label className="animal-select-label">생년월일</label>
-          <div className="date-input-wrapper">
+          <div className="input-wrapper">
             <div className="date-input-icon">
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <g fill="none">
@@ -163,7 +163,7 @@ function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
             </MuiPickersUtilsProvider>
           </div>
         </div>
-        {animalAgeInfo.type === 'dog' ? (
+        {animalAgeInfo.type === '강아지' ? (
           <div className="select-dogSize-wrapper">
             <label className="animal-select-label">강아지 크기</label>
             <div className="dogSize-radio-button-wrapper">
@@ -224,7 +224,7 @@ function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
           <></>
         )}
 
-        <div className="age-result-button-wrapper">
+        <div className="result-button-wrapper">
           <button type="submit">결과보기</button>
         </div>
       </form>

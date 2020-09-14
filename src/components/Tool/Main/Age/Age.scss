@@ -1,24 +1,15 @@
 @import '../../../styles/color.scss';
-
-.age-calculator-container {
-  display: flex;
-  justify-content: center;
-  padding: 80px 0px;
-  background-color: #f6f7f8;
+@import '../UIcomponents/UIstyles.scss';
+.calculator-container {
+  @include calculatorContainer();
 }
 
-.age-wrapper-form {
-  padding: 60px 50px;
-  width: 620px;
-  background-color: white;
-  border-radius: 14px;
-  box-shadow: #dedee0a6 0px 12px 25px -20px;
+.calculator-form {
+  @include calculatorForm();
 }
 
 .select-animal-wrapper {
-  display: flex;
-  margin-bottom: 32px;
-  width: 100%;
+  @include selectAnimalWrapper();
 
   /* 
   flex-wrap property는 flex-item 요소들이 강제로 한줄에 배치되게 할 것인지, 또는 가능한 영역 내에서 벗어나지 않고 여러행으로 나누어 표현 할 것인지 결정하는 속성입니다.
@@ -26,20 +17,15 @@
 }
 
 .animal-select-label {
-  width: 160px;
-  font-weight: bold;
-  padding: 10px 0px;
-  white-space: pre-line;
-  font-family: 'yg-jalnan';
-  font-size: 16px;
-  line-height: 1.75;
-  letter-spacing: -0.32px;
+  @include animalSelectLabel();
 }
 .select-image-wrapper,
 .dogSize-radio-button-wrapper {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
   max-width: 360px;
+  justify-content: space-between;
 
   .unselect-image-box,
   .select-image-box {
@@ -49,7 +35,6 @@
     height: 150px;
     border: 5px solid #f6f7f8;
     border-radius: 10px;
-    margin-right: 20px;
     background-color: #f6f7f8;
     -webkit-box-pack: center;
     justify-content: center;
@@ -85,38 +70,14 @@
   }
 }
 
-.select-date-wrapper,
+.input-container,
 .select-dogSize-wrapper {
   display: flex;
   width: 100%;
   margin-bottom: 32px;
 }
-.date-input-wrapper {
-  width: 100%;
-  max-width: 360px;
-  text-align: right;
-  height: 48px;
-  border-radius: 14px;
-  background-color: #f6f7f8;
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-  border: 2px solid transparent;
-
-  input {
-    color: #090909;
-    font-family: 'yg-jalnan';
-    height: 26px;
-    font-size: 14px;
-    outline: none;
-    border: none;
-    width: 100%;
-    background-color: #f6f7f8;
-
-    &::placeholder {
-      opacity: 0.35;
-    }
-  }
+.input-wrapper {
+  @include inputWrapper();
 }
 .date-input-icon {
   padding-right: 10px;
@@ -174,16 +135,6 @@
   }
 }
 
-.age-result-button-wrapper {
-  margin: 60px 70px 0px;
-  button {
-    width: 100%;
-    height: 48px;
-    border-radius: 14px;
-    border: none;
-    outline: none;
-    font-family: 'yg-jalnan';
-    color: #090909;
-    background-color: #fcd11e;
-  }
+.result-button-wrapper {
+  @include resultButtonWrapper();
 }

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { animalType, BmiState } from '../../../../modules/calculator'
+import { animalType } from '../../../../modules/calculator'
 import BmiSelect from './BmiSelect'
 import { BmiFormProps } from './BmiType'
 
@@ -24,18 +24,18 @@ function BmiForm({ animalBmiInfo, onInputBmiInfo }: BmiFormProps) {
   )
 
   return (
-    <div className="bmi-calculator-container">
-      <form className="bmi-wrapper-form" onSubmit={getAnimalBmi}>
+    <div className="calculator-container">
+      <form className="calculator-form" onSubmit={getAnimalBmi}>
         <div className="select-animal-wrapper">
           <label className="animal-select-label">반려동물 종류</label>
           <div className="select-image-wrapper">
             <div
               className={`${
-                animalBmiInfo.type === 'dog'
+                animalBmiInfo.type === '강아지'
                   ? `select-image-box`
                   : `unselect-image-box`
               }`}
-              onClick={handleAnimalType('dog')}
+              onClick={handleAnimalType('강아지')}
             >
               <img
                 alt="select-dog"
@@ -45,11 +45,11 @@ function BmiForm({ animalBmiInfo, onInputBmiInfo }: BmiFormProps) {
             </div>
             <div
               className={`${
-                animalBmiInfo.type === 'cat'
+                animalBmiInfo.type === '고양이'
                   ? `select-image-box`
                   : `unselect-image-box`
               }`}
-              onClick={handleAnimalType('cat')}
+              onClick={handleAnimalType('고양이')}
             >
               <img
                 alt="select-cat"
@@ -68,7 +68,7 @@ function BmiForm({ animalBmiInfo, onInputBmiInfo }: BmiFormProps) {
           <></>
         )}
 
-        <div className="bmi-result-button-wrapper">
+        <div className="result-button-wrapper">
           <button type="submit">결과보기</button>
         </div>
       </form>

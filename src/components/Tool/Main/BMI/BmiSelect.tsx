@@ -1,9 +1,5 @@
 import * as React from 'react'
-import {
-  animalBmiType,
-  animalType,
-  BmiState,
-} from '../../../../modules/calculator'
+import { animalBmiType, animalType } from '../../../../modules/calculator'
 import './BmiSelect.scss'
 import { BmiFormProps } from './BmiType'
 
@@ -27,9 +23,9 @@ function BmiSelect({ animalBmiInfo, onInputBmiInfo }: BmiFormProps) {
         'https://tools.mypetlife.co.kr/static/media/cat-fat-4.f82732fa.png',
         'https://tools.mypetlife.co.kr/static/media/cat-fat-5.1e1754e9.png',
       ]
-      if (type === 'dog') {
+      if (type === '강아지') {
         return dogBmiImages[index]
-      } else if (type === 'cat') {
+      } else if (type === '고양이') {
         return catBmiImages[index]
       }
     },

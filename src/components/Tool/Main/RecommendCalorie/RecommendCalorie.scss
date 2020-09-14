@@ -1,0 +1,21 @@
+@import '../../../styles/color.scss';
+@import '../UIcomponents/UIstyles.scss';
+.calculator-container {
+  @include calculatorContainer();
+}
+
+.calculator-form {
+  @include calculatorForm();
+
+  & > label {
+    @include animalSelectLabel();
+  }
+}
+
+.select-animal-wrapper {
+  @include selectAnimalWrapper();
+}
+
+.result-button-wrapper {
+  @include resultButtonWrapper();
+}
