@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { RecommendCalorieState } from '../../../../modules/calculator'
 import {
   CatStatus,
   DogStatus,
@@ -12,7 +11,6 @@ interface PetStatusChoiceItemProps extends RecommendCalorieFormProps {
 }
 
 function PetStatusChoiceItem({
-  key,
   status,
   recommendCalorieInfo,
   onInputRecommendCalorieInfo,

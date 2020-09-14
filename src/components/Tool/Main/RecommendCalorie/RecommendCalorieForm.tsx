@@ -1,8 +1,5 @@
 import * as React from 'react'
-import {
-  animalType,
-  RecommendCalorieState,
-} from '../../../../modules/calculator'
+import { animalType } from '../../../../modules/calculator'
 import './RecommendCalorieForm.scss'
 
 import {
@@ -28,7 +25,7 @@ function RecommendCalorieForm({
     [recommendCalorieInfo]
   )
 
-  const getAnimalBmi = React.useCallback(
+  const getRecommendCalorie = React.useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault()
       recommendCalorieObjct.result = true
@@ -81,7 +78,7 @@ function RecommendCalorieForm({
   }, [recommendCalorieInfo])
   return (
     <div className="calculator-container">
-      <form className="calculator-form" onSubmit={getAnimalBmi}>
+      <form className="calculator-form" onSubmit={getRecommendCalorie}>
         <div className="select-animal-wrapper">
           <label className="animal-select-label">반려동물 종류</label>
           <div className="select-image-wrapper">

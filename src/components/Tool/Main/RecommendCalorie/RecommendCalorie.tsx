@@ -1,7 +1,15 @@
 import * as React from 'react'
 import './RecommendCalorie.scss'
 import RecommendCalorieFormContainer from './RecommendCalorieFormContainer'
+import RecommendCalorieResult from './RecommendCalorieResult'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../../../modules'
+
 function RecommendCalorie() {
+  const { result } = useSelector(
+    (state: RootState) => state.calculator.recommendCalorie
+  )
+
   return (
     <>
       <div className="main-img-container">
@@ -21,6 +29,7 @@ function RecommendCalorie() {
       </div>
 
       <RecommendCalorieFormContainer />
+      {result ? <RecommendCalorieResult /> : <></>}
     </>
   )
 }
