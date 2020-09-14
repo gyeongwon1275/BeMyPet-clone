@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { animalType } from '../../../../modules/calculator'
+import SubmitButton from '../UIcomponents/SubmitButton'
 import BmiSelect from './BmiSelect'
 import { BmiFormProps } from './BmiType'
 
@@ -68,9 +69,7 @@ function BmiForm({ animalBmiInfo, onInputBmiInfo }: BmiFormProps) {
           <></>
         )}
 
-        <div className="result-button-wrapper">
-          <button type="submit">결과보기</button>
-        </div>
+        <SubmitButton />
       </form>
     </div>
   )

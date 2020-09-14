@@ -8,13 +8,15 @@ import {
   RecommendCalorieFormProps,
 } from './PetStatusUtils'
 import PetStatusChoiceItem from './PetStatusChoiceItem'
+import InputContainer from '../UIcomponents/InputContainer'
+import SubmitButton from '../UIcomponents/SubmitButton'
 
 function RecommendCalorieForm({
   recommendCalorieInfo,
   onInputRecommendCalorieInfo,
 }: RecommendCalorieFormProps) {
   const recommendCalorieObjct = recommendCalorieInfo
-  const { type, weight, isStatusOpen, status, result } = recommendCalorieInfo
+  const { type, isStatusOpen, status } = recommendCalorieInfo
   const handleAnimalType = React.useCallback(
     (type: animalType) => () => {
       recommendCalorieObjct.type = type
@@ -112,22 +114,15 @@ function RecommendCalorieForm({
             </div>
           </div>
         </div>
-
-        <div className="input-container">
-          <label className="animal-select-label">반려동물 몸무게</label>
-          <div className="input-wrapper">
-            <input
-              name="weight"
-              type="number"
-              placeholder="소수점 둘째자리까지 입력가능"
-              step={0.01}
-              onChange={handleWeight}
-              value={String(recommendCalorieInfo.weight)}
-            />
-
-            <div className="unit-wrapper">kg</div>
-          </div>
-        </div>
+        <InputContainer
+          label="반려동물 몸무게"
+          value={String(recommendCalorieInfo.weight)}
+          unit="kg"
+          placeholder="소수점 둘째자리까지 입력가능"
+          type="number"
+          name="weight"
+          onChange={handleWeight}
+        />
 
         <div className="input-container">
           <label className="animal-select-label">반려동물 상태</label>
@@ -159,9 +154,7 @@ TODO
             )}
           </div>
         </div>
-        <div className="result-button-wrapper">
-          <button type="submit">결과보기</button>
-        </div>
+        <SubmitButton />
       </form>
     </div>
   )

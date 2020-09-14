@@ -7,6 +7,7 @@ import {
 import { DatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers'
 import DateFnsUtils from '@date-io/date-fns'
 import AgeUtils from './AgeUtils'
+import SubmitButton from '../UIcomponents/SubmitButton'
 
 interface AgeFormProps {
   animalAgeInfo: AgeState
@@ -164,15 +165,15 @@ function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
           </div>
         </div>
         {animalAgeInfo.type === '강아지' ? (
-          <div className="select-dogSize-wrapper">
+          <div className="choose-status-wrapper">
             <label className="animal-select-label">강아지 크기</label>
-            <div className="dogSize-radio-button-wrapper">
+            <div className="status-radio-button-wrapper">
               <div className="input-radio-wrapper">
                 <label
                   className={
                     animalAgeInfo.size === '소형'
-                      ? 'selected-dogSize'
-                      : 'unselected-dogSize'
+                      ? 'selected-input-label'
+                      : 'unselected-input-label'
                   }
                 >
                   <input
@@ -181,15 +182,15 @@ function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
                     value="소형"
                     onClick={handleDogSize('소형')}
                   />
-                  소형견
+                  소형
                 </label>
               </div>
               <div className="input-radio-wrapper">
                 <label
                   className={
                     animalAgeInfo.size === '중형'
-                      ? 'selected-dogSize'
-                      : 'unselected-dogSize'
+                      ? 'selected-input-label'
+                      : 'unselected-input-label'
                   }
                 >
                   <input
@@ -198,15 +199,15 @@ function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
                     value="중형"
                     onClick={handleDogSize('중형')}
                   />
-                  중형견
+                  중형
                 </label>
               </div>
               <div className="input-radio-wrapper">
                 <label
                   className={
                     animalAgeInfo.size === '대형'
-                      ? 'selected-dogSize'
-                      : 'unselected-dogSize'
+                      ? 'selected-input-label'
+                      : 'unselected-input-label'
                   }
                 >
                   <input
@@ -215,7 +216,7 @@ function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
                     value="대형"
                     onClick={handleDogSize('대형')}
                   />
-                  대형견
+                  대형
                 </label>
               </div>
             </div>
@@ -223,10 +224,10 @@ function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
         ) : (
           <></>
         )}
-
-        <div className="result-button-wrapper">
+        <SubmitButton />
+        {/*   <div className="result-button-wrapper">
           <button type="submit">결과보기</button>
-        </div>
+        </div> */}
       </form>
     </div>
   )
