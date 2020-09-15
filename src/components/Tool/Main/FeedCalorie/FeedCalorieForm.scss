@@ -1,0 +1,14 @@
+.checkBox-isBig-dog {
+  border-radius: 4px !important;
+
+  &:checked {
+    background-color: rgb(252, 209, 30) !important;
+  }
+}
+.selected-input-label {
+  i {
+    color: white;
+    position: absolute;
+    padding: 4px;
+  }
+}

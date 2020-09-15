@@ -225,9 +225,6 @@ function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
           <></>
         )}
         <SubmitButton />
-        {/*   <div className="result-button-wrapper">
-          <button type="submit">결과보기</button>
-        </div> */}
       </form>
     </div>
   )
