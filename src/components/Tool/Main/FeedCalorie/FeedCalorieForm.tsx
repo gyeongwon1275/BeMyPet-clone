@@ -1,9 +1,8 @@
 import * as React from 'react'
-import { AnimalGrowth, animalType } from '../../../../modules/calculator'
+import { AnimalGrowthType, animalType } from '../../../../modules/calculator'
 import SubmitButton from '../UIcomponents/SubmitButton'
 import FeedCalorieInput from './FeedCalorieInput'
 
-import './FeedCalorieForm.scss'
 import { FeedCalorieFormProps } from './FeedCalorieUtils'
 
 function FeedCalorieForm({
@@ -24,7 +23,7 @@ function FeedCalorieForm({
   )
 
   const handleAnimalGrowth = React.useCallback(
-    (growth: AnimalGrowth | null) => () => {
+    (growth: AnimalGrowthType | null) => () => {
       feedCalorieObjct.growth = growth
       onInputfeedCalorieInfo(feedCalorieObjct)
     },

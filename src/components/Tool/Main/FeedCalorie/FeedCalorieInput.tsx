@@ -2,15 +2,13 @@ import * as React from 'react'
 import InputContainer from '../UIcomponents/InputContainer'
 import { FeedCalorieFormProps } from './FeedCalorieUtils'
 import produce from 'immer'
-import {
-  FeedCalorieNutrientInfo,
-  NutrientType,
-} from '../../../../modules/calculator'
+import { NutrientType } from '../../../../modules/calculator'
+import FoodCalorie from './FeedCalorieUtils'
 function FeedCalorieInput({
   feedCalorieInfo,
   onInputfeedCalorieInfo,
 }: FeedCalorieFormProps) {
-  const { type, growth, isBig, nutrient, result } = feedCalorieInfo
+  const { type, nutrient } = feedCalorieInfo
 
   const handleNutrient = React.useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
