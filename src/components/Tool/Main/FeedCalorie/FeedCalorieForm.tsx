@@ -1,5 +1,10 @@
+import { keys } from '@material-ui/core/styles/createBreakpoints'
 import * as React from 'react'
-import { AnimalGrowthType, animalType } from '../../../../modules/calculator'
+import {
+  AnimalGrowthType,
+  animalType,
+  FeedCalorieNutrientInfo,
+} from '../../../../modules/calculator'
 import SubmitButton from '../UIcomponents/SubmitButton'
 import FeedCalorieInput from './FeedCalorieInput'
 
@@ -10,7 +15,7 @@ function FeedCalorieForm({
   onInputfeedCalorieInfo,
 }: FeedCalorieFormProps) {
   const feedCalorieObjct = feedCalorieInfo
-  const { type, growth, isBig, nutrient, result } = feedCalorieInfo
+  const { type, growth, isBig, nutrient } = feedCalorieInfo
   const handleAnimalType = React.useCallback(
     (type: animalType) => () => {
       feedCalorieObjct.type = type
@@ -34,9 +39,48 @@ function FeedCalorieForm({
     feedCalorieObjct.isBig = !isBig
     onInputfeedCalorieInfo(feedCalorieObjct)
   }, [feedCalorieInfo])
+
+  const handleFeedCalorieResult = React.useCallback(
+    (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault()
+
+      const nullValueNutrient = []
+      for (let i in nutrient) {
+        if (!nutrient[i as keyof FeedCalorieNutrientInfo]) {
+          nullValueNutrient.push(i)
+        }
+      }
+
+      // TODO
+      /* 
+      값이 null 인 키를 찾아서 배열등으로 모음 
+      */
+      if (!type) {
+        alert(`동물 종류를 선택해주세요 `)
+        return
+      }
+      if (!growth) {
+        alert(`반려동물 상태를 선택해주세요 `)
+        return
+      }
+
+      if (type === '강아지' && !isBig) {
+        alert(`대형견 여부를 선택해주세요 `)
+        return
+      }
+      if (nullValueNutrient.length > 0) {
+        alert(`영양소를 전부 입력해주세요 `)
+        return
+      }
+
+      feedCalorieObjct.result = true
+      onInputfeedCalorieInfo(feedCalorieObjct)
+    },
+    [feedCalorieInfo]
+  )
   return (
     <div className="calculator-container">
-      <form className="calculator-form">
+      <form className="calculator-form" onSubmit={handleFeedCalorieResult}>
         <div className="select-animal-wrapper">
           <label className="animal-select-label">반려동물 종류</label>
           <div className="select-image-wrapper">
@@ -122,7 +166,6 @@ function FeedCalorieForm({
                     className="checkBox-isBig-dog"
                     type="checkbox"
                     onClick={handleDogSize}
-                    checked={isBig}
                   />
                   {isBig ? <i className="fas fa-check" /> : <></>}
                   네! 대형견이에요.

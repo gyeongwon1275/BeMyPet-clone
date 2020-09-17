@@ -1,18 +1,13 @@
 import * as React from 'react'
 import FeedCalorieFormContainer from './FeedCalorieFormContainer'
-import PieChart from './PieChart'
 import './FeedCalorie.scss'
 import FeedCalorieResult from './FeedCalorieResult'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../../../modules'
 function FeedCalorie() {
-  const chartData = {
-    labels: ['단백질', '탄수화물', '지방'],
-    datasets: [
-      {
-        data: [24, 51, 25],
-        backgroundColor: ['#cbccba', '#98bc73', '#fcd11e'],
-      },
-    ],
-  }
+  const { result } = useSelector(
+    (state: RootState) => state.calculator.feedCalorie
+  )
   return (
     <>
       <div className="main-img-container">
@@ -35,8 +30,8 @@ function FeedCalorie() {
         <img src="https://tools.mypetlife.co.kr/static/media/feedMain.049f12bf.png" />
       </div>
       <FeedCalorieFormContainer />
-      <FeedCalorieResult />
-      {/* <PieChart data={chartData} width={234} totalCalories={100} /> */}
+      {}
+      {result ? <FeedCalorieResult /> : <></>}
     </>
   )
 }

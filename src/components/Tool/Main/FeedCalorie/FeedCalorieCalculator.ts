@@ -1,16 +1,4 @@
 import {
-  animalType,
-  FeedCalorieNutrientInfo,
-  FeedCalorieState,
-  AnimalGrowthType,
-} from '../../../../modules/calculator'
-
-export interface FeedCalorieFormProps {
-  feedCalorieInfo: FeedCalorieState
-  onInputfeedCalorieInfo: (animalBmiObject: FeedCalorieState) => void
-}
-
-import {
   Nutrient,
   dogAdultNutrientProfile,
   bigDogGrowthNutrientProfile,
@@ -20,16 +8,13 @@ import {
   NutrientData,
 } from './nutrientProfile'
 
-// 영양소 객체 정의해놓음
-
-export interface FeedCalorieData {
-  type: animalType
-  growth: AnimalGrowthType
-  isBig: boolean
-  nutrient: FeedCalorieNutrientInfo
-}
-
-// models
+import {
+  animalType,
+  FeedCalorieNutrientInfo,
+  FeedCalorieState,
+  AnimalGrowthType,
+} from '../../../../modules/calculator'
+import { FeedCalorieData } from './FeedCalorieUtils'
 export default class FeedCalorieCalculator {
   private feedCalorieData: FeedCalorieData
   constructor(feedCalorieData: FeedCalorieData) {
@@ -186,6 +171,9 @@ export default class FeedCalorieCalculator {
         : catGrowthNutrientProfile
     }
 
+    // XXX 충족하는 영양소의 종류, 최소값 보다 작은 영양소의 종류
+    // 최대값을 넘어선 영양소의 종류를 배열에 넣어서 리턴
+    // 충족하면 초록색, 아니면 빨간색
     if (profile) {
       profile.forEach((nutrientItem: NutrientData) => {
         // profile 에 있는 영양소 key 에 있는 값 을 value 에
@@ -246,3 +234,10 @@ export default class FeedCalorieCalculator {
     ]
   }
 }
+
+/* 
+  get hasOptionalData(): boolean {
+    return !!this.animal && !!this.growth;
+  }
+
+*/

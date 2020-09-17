@@ -82,13 +82,6 @@
   }
 }
 
-/*
-    padding: 24px 0px 50px;
-    display: flex;
-    -webkit-box-pack: center;
-    justify-content: center; 
- */
-
 .graph-wrapper {
   padding-top: 24px;
   padding-bottom: 50px;
@@ -165,4 +158,8 @@
   /* -webkit-box-pack: justify; */
   justify-content: space-between;
   margin-bottom: 16px;
+}
+
+.not-satisfied {
+  color: red !important;
 }

@@ -1,12 +1,34 @@
 import * as React from 'react'
 import PieChart from './PieChart'
-
+import { useSelector } from 'react-redux'
+import { RootState } from '../../../../modules'
+import FeedCalorieCalculator from './FeedCalorieCalculator'
+import { Nutrient } from './nutrientProfile'
 function FeedCalorieResult() {
+  const { type, growth, isBig, nutrient } = useSelector(
+    (state: RootState) => state.calculator.feedCalorie
+  )
+  const feedCalorieInfo = { type, growth, isBig, nutrient }
+  const feedCalorieResult = new FeedCalorieCalculator(feedCalorieInfo)
+  const {
+    minValues,
+    maxValues,
+    suitableValues,
+  } = feedCalorieResult.getAAFCOResult()
+
+  console.log('minValues', minValues)
+  console.log('maxValues', maxValues)
+  console.log('suitableValues', suitableValues)
+
   const chartData = {
     labels: ['단백질', '탄수화물', '지방'],
     datasets: [
       {
-        data: [24, 51, 25],
+        data: [
+          feedCalorieResult.dmProteinCalorie,
+          feedCalorieResult.dmCarbohydrateCalorie,
+          feedCalorieResult.dmFatCalorie,
+        ],
         backgroundColor: ['#cbccba', '#98bc73', '#fcd11e'],
       },
     ],
@@ -23,32 +45,89 @@ function FeedCalorieResult() {
       <div className="result-data-wrapper">
         <div className="graph-container">
           <h4>
-            총 칼로리 <span>369</span>kcal (100g 기준)
+            총 칼로리 <span>{feedCalorieResult.totalCalories}</span>kcal (100g
+            기준)
           </h4>
           <p>칼로리 기준 비율</p>
           <div className="graph-wrapper">
-            <PieChart data={chartData} width={234} totalCalories={100} />
+            <PieChart
+              data={chartData}
+              width={234}
+              totalCalories={feedCalorieResult.totalCalories}
+            />
           </div>
         </div>
         <hr />
         <div className="AAFCO-result-wrapper">
           <h4>2020 미국사료협회(AAFCO) 기준</h4>
+          {suitableValues.length > 0 ? (
+            <h4>
+              {suitableValues
+                .filter((x) => x !== Nutrient.CalciumPerPhosphorus)
+                .join(', ')}{' '}
+              <span> 함유량이 기준 최소치를 </span>
+              <span>충족합니다.</span>
+            </h4>
+          ) : (
+            <></>
+          )}
 
-          <h4>
-            조단백질, 조지방
-            <span> 함유량이 기준 최소치를 </span>
-            <span>충족합니다.</span>
-          </h4>
-          <h4>
-            칼슘:인
-            <span> 함유량 비율이 기준 최소치를 </span>
-            <span>충족합니다.</span>
-          </h4>
-          <h4>
-            인, 칼슘
-            <span> 함유량이 기준 최소치를 </span>
-            <span> 충족하지 않습니다.</span>
-          </h4>
+          {suitableValues.includes(Nutrient.CalciumPerPhosphorus) ? (
+            <h4>
+              {suitableValues
+                .filter((x) => x === Nutrient.CalciumPerPhosphorus)
+                .join(', ')}{' '}
+              <span>함유량 비율이 기준 최소치를 </span>
+              <span>충족합니다.</span>
+            </h4>
+          ) : (
+            <></>
+          )}
+
+          {minValues.length > 0 ? (
+            <h4>
+              {minValues
+                .filter((x) => x !== Nutrient.CalciumPerPhosphorus)
+                .join(', ')}{' '}
+              <span> 함유량이 기준 최소치를 </span>
+              <span className="not-satisfied">충족하지 않습니다.</span>
+            </h4>
+          ) : (
+            <></>
+          )}
+          {minValues.includes(Nutrient.CalciumPerPhosphorus) ? (
+            <h4>
+              {minValues
+                .filter((x) => x === Nutrient.CalciumPerPhosphorus)
+                .join(', ')}{' '}
+              <span> 함유량이 기준 최소치를 </span>
+              <span className="not-satisfied">충족하지 않습니다.</span>
+            </h4>
+          ) : (
+            <></>
+          )}
+          {maxValues.length > 0 ? (
+            <h4>
+              {maxValues
+                .filter((x) => x !== Nutrient.CalciumPerPhosphorus)
+                .join(', ')}{' '}
+              <span>함유량이 권장량 최대치를 </span>
+              <span className="not-satisfied">초과합니다</span>
+            </h4>
+          ) : (
+            <></>
+          )}
+          {maxValues.includes(Nutrient.CalciumPerPhosphorus) ? (
+            <h4>
+              {maxValues
+                .filter((x) => x === Nutrient.CalciumPerPhosphorus)
+                .join(', ')}{' '}
+              <span>함유량 비율이 권장량 최대치를 </span>
+              <span className="not-satisfied">초과합니다.</span>
+            </h4>
+          ) : (
+            <></>
+          )}
         </div>
         <hr />
         <div className="dm-standard-container">
@@ -60,30 +139,15 @@ function FeedCalorieResult() {
           </p>
 
           <div className="nutrient-container">
-            <div className="nutrient-wrapper">
-              <h4>조단백질</h4>
-              <h4>
-                <span>27.27</span>%
-              </h4>
-            </div>
-            <div className="nutrient-wrapper">
-              <h4>조지방</h4>
-              <h4>
-                <span>10.23</span>%
-              </h4>
-            </div>
-            <div className="nutrient-wrapper">
-              <h4>탄수화물</h4>
-              <h4>
-                <span>53.41</span>%
-              </h4>
-            </div>
-            <div className="nutrient-wrapper">
-              <h4>칼슘:인</h4>
-              <h4>
-                <span>1.00</span>
-              </h4>
-            </div>
+            {feedCalorieResult.result.map((nutrient) => (
+              <div className="nutrient-wrapper" key={nutrient.key}>
+                <h4>{nutrient.label}</h4>
+                <h4>
+                  <span>{nutrient.value.toFixed(2)}</span>
+                  {nutrient.key !== 'calciumPerPhosphorus' ? ' %' : ''}
+                </h4>
+              </div>
+            ))}
           </div>
         </div>
       </div>
