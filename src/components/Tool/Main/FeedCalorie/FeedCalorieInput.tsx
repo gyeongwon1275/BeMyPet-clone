@@ -3,7 +3,6 @@ import InputContainer from '../UIcomponents/InputContainer'
 import { FeedCalorieFormProps } from './FeedCalorieUtils'
 import produce from 'immer'
 import { NutrientType } from '../../../../modules/calculator'
-import FoodCalorie from './FeedCalorieUtils'
 function FeedCalorieInput({
   feedCalorieInfo,
   onInputfeedCalorieInfo,

@@ -5,16 +5,16 @@ import FeedCalorie from './FeedCalorie/FeedCalorie'
 import RecommendCalorie from './RecommendCalorie/RecommendCalorie'
 
 import Home from './Home'
-import { Route, Switch } from 'react-router-dom'
+import { Redirect, Route, Switch } from 'react-router-dom'
 import Bmi from './Bmi/Bmi'
 function Main() {
   return (
     <main>
       <Switch>
-        <Route exact path="/tool/" component={Home} />
-        <Route exact path="/tool/foodCalorie">
-          <FeedCalorie />
-        </Route>
+        <Route exact path="/" render={() => <Redirect to="/tool" />} />
+        <Route exact path="/tool" component={Home} />
+        <Route exact path="/tool/foodCalorie" component={FeedCalorie} />
+
         <Route exact path="/tool/recommendCalorie">
           <RecommendCalorie />
         </Route>

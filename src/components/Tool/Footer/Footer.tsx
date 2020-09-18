@@ -1,6 +1,6 @@
 import * as React from 'react'
 import './Footer.scss'
-const Footer: React.FC = () => {
+function Footer() {
   return (
     <footer className="tool-footer">
       <div className="tool-corporationInfo-wrapper">

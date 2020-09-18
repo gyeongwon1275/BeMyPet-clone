@@ -2,7 +2,7 @@ import * as React from 'react'
 import './Nav.scss'
 import { Link } from 'react-router-dom'
 
-const Nav: React.FC = () => {
+function Nav() {
   return (
     <header>
       <div className="tool-nav-container">
