@@ -9,7 +9,7 @@ import { BrowserRouter } from 'react-router-dom'
 const store = createStore(rootReducer, composeWithDevTools())
 ReactDom.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <BrowserRouter basename="/BeMyPet-clone">
       <App />
     </BrowserRouter>
   </Provider>,
