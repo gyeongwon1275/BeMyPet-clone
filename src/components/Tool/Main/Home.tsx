@@ -1,7 +1,16 @@
 import * as React from 'react'
 import './Home.scss'
-import { Link } from 'react-router-dom'
-const Home: React.FC = () => {
+import { useHistory } from 'react-router-dom'
+function Home() {
+  const history = useHistory()
+
+  const handleNavigation = React.useCallback(
+    (location: string) => () => {
+      history.push(location)
+    },
+    []
+  )
+
   return (
     <>
       <div className="main-img-container">
@@ -16,45 +25,53 @@ const Home: React.FC = () => {
         <img src="https://tools.mypetlife.co.kr/static/media/samoMain.643fe606.png" />
       </div>
       <div className="calculator-menu-container">
-        <div className="food-calculator-menu">
+        <div
+          className="food-calculator-menu"
+          onClick={handleNavigation('/tool/foodCalorie')}
+        >
           <h2>
             <span>사료칼로리</span>
             <br />
             계산기
           </h2>
-          <Link to="/tool/foodCalorie">
-            <button>{`>`}</button>
-          </Link>
+
+          <button>{`>`}</button>
         </div>
-        <div className="recommend-calculator-menu">
+        <div
+          className="recommend-calculator-menu"
+          onClick={handleNavigation('/tool/recommendCalorie')}
+        >
           <h2>
             <span>권장칼로리</span>
             <br />
             계산기
           </h2>
-          <Link to="/tool/recommendCalorie">
-            <button>{`>`}</button>
-          </Link>
+
+          <button>{`>`}</button>
         </div>
-        <div className="bmi-calculator-menu">
+        <div
+          className="bmi-calculator-menu"
+          onClick={handleNavigation('/tool/bmi')}
+        >
           <h2>
             <span>비만도</span>
             <br />
             계산기
           </h2>
-          <Link to="/tool/bmi">
-            <button>{`>`}</button>
-          </Link>
+
+          <button>{`>`}</button>
         </div>
-        <div className="age-calculator-menu">
+        <div
+          className="age-calculator-menu"
+          onClick={handleNavigation('/tool/age')}
+        >
           <h2>
             <span>나이</span>
             <br />
             계산기
           </h2>
-          <Link to="/tool/age">
-            <button>{`>`}</button>
-          </Link>
+
+          <button>{`>`}</button>
         </div>
       </div>
     </>

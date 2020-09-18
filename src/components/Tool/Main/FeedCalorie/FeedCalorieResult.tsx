@@ -16,10 +16,6 @@ function FeedCalorieResult() {
     suitableValues,
   } = feedCalorieResult.getAAFCOResult()
 
-  console.log('minValues', minValues)
-  console.log('maxValues', maxValues)
-  console.log('suitableValues', suitableValues)
-
   const chartData = {
     labels: ['단백질', '탄수화물', '지방'],
     datasets: [

@@ -1,8 +1,10 @@
 import * as React from 'react'
 import './Nav.scss'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 function Nav() {
+  const location = useLocation()
+
   return (
     <header>
       <div className="tool-nav-container">
@@ -13,11 +15,42 @@ function Nav() {
           </Link>
         </div>
         <div className="tool-nav-menu">
-          <Link to="/tool">홈</Link>
-          <Link to="/tool/foodCalorie">사료칼로리 계산</Link>
-          <Link to="/tool/recommendCalorie">권장칼로리 계산</Link>
-          <Link to="/tool/bmi">비만도 계산</Link>
-          <Link to="/tool/age">나이 계산</Link>
+          <Link
+            to="/tool"
+            className={location.pathname === '/tool' ? 'current-nav' : ''}
+          >
+            홈
+          </Link>
+          <Link
+            to="/tool/foodCalorie"
+            className={
+              location.pathname === '/tool/foodCalorie' ? 'current-nav' : ''
+            }
+          >
+            사료칼로리 계산
+          </Link>
+          <Link
+            to="/tool/recommendCalorie"
+            className={
+              location.pathname === '/tool/recommendCalorie'
+                ? 'current-nav'
+                : ''
+            }
+          >
+            권장칼로리 계산
+          </Link>
+          <Link
+            to="/tool/bmi"
+            className={location.pathname === '/tool/bmi' ? 'current-nav' : ''}
+          >
+            비만도 계산
+          </Link>
+          <Link
+            to="/tool/age"
+            className={location.pathname === '/tool/age' ? 'current-nav' : ''}
+          >
+            나이 계산
+          </Link>
         </div>
       </div>
     </header>

@@ -1,4 +1,3 @@
-import { keys } from '@material-ui/core/styles/createBreakpoints'
 import * as React from 'react'
 import {
   AnimalGrowthType,

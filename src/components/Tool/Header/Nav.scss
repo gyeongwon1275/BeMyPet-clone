@@ -29,7 +29,21 @@
     color: #868688;
     z-index: 1;
   }
-
+  .current-nav {
+    color: #090909;
+    font-weight: bold;
+  }
+  .current-nav:after {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    right: 27px;
+    top: -5px;
+    width: 12px;
+    height: 12px;
+    background-color: $primaryColor;
+    border-radius: 50%;
+  }
   /*  span {
       content: '';
       z-index: -1;
