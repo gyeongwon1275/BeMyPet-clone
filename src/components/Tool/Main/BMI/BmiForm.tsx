@@ -1,11 +1,17 @@
 import * as React from 'react'
 import { animalType } from '../../../../modules/calculator'
+import { initialBmiState } from '../../../../modules/calculator/reducer'
 import SubmitButton from '../UIcomponents/SubmitButton'
 import BmiSelect from './BmiSelect'
 import { BmiFormProps } from './BmiType'
 
 function BmiForm({ animalBmiInfo, onInputBmiInfo }: BmiFormProps) {
   const bmiInfoObjct = animalBmiInfo
+
+  React.useEffect(() => {
+    onInputBmiInfo(initialBmiState)
+  }, [])
+
   const handleAnimalType = React.useCallback(
     (type: animalType) => () => {
       bmiInfoObjct.type = type

@@ -10,6 +10,7 @@ import {
 import PetStatusChoiceItem from './PetStatusChoiceItem'
 import InputContainer from '../UIcomponents/InputContainer'
 import SubmitButton from '../UIcomponents/SubmitButton'
+import { initialRecommendCalorie } from '../../../../modules/calculator/reducer'
 
 function RecommendCalorieForm({
   recommendCalorieInfo,
@@ -17,6 +18,10 @@ function RecommendCalorieForm({
 }: RecommendCalorieFormProps) {
   const recommendCalorieObjct = recommendCalorieInfo
   const { type, isStatusOpen, status } = recommendCalorieInfo
+
+  React.useEffect(() => {
+    onInputRecommendCalorieInfo(initialRecommendCalorie)
+  }, [])
   const handleAnimalType = React.useCallback(
     (type: animalType) => () => {
       recommendCalorieObjct.type = type

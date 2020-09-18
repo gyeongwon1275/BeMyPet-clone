@@ -4,6 +4,7 @@ import {
   animalType,
   FeedCalorieNutrientInfo,
 } from '../../../../modules/calculator'
+import { initialFeedCalorieState } from '../../../../modules/calculator/reducer'
 import SubmitButton from '../UIcomponents/SubmitButton'
 import FeedCalorieInput from './FeedCalorieInput'
 
@@ -15,6 +16,11 @@ function FeedCalorieForm({
 }: FeedCalorieFormProps) {
   const feedCalorieObjct = feedCalorieInfo
   const { type, growth, isBig, nutrient } = feedCalorieInfo
+
+  React.useEffect(() => {
+    onInputfeedCalorieInfo(initialFeedCalorieState)
+  }, [])
+
   const handleAnimalType = React.useCallback(
     (type: animalType) => () => {
       feedCalorieObjct.type = type
@@ -49,7 +55,7 @@ function FeedCalorieForm({
           nullValueNutrient.push(i)
         }
       }
-
+      console.log('nullValueNutrient', nullValueNutrient)
       // TODO
       /* 
       값이 null 인 키를 찾아서 배열등으로 모음 
@@ -67,9 +73,18 @@ function FeedCalorieForm({
         alert(`대형견 여부를 선택해주세요 `)
         return
       }
-      if (nullValueNutrient.length > 0) {
-        alert(`영양소를 전부 입력해주세요 `)
-        return
+      if (type === '강아지') {
+        if (nullValueNutrient.length > 2) {
+          alert(`영양소를 전부 입력해주세요 `)
+          return
+        }
+      }
+
+      if (type === '고양이') {
+        if (nullValueNutrient.length > 1) {
+          alert(`영양소를 전부 입력해주세요 `)
+          return
+        }
       }
 
       feedCalorieObjct.result = true

@@ -33,33 +33,44 @@ TODO
 alert `${key1,key2}` 로 띄우기 
 
 */
+
+export const initialAgeState = {
+  type: null,
+  size: null,
+  date: null,
+  result: false,
+  age: null,
+}
+export const initialBmiState = { type: null, bmi: null, result: false }
+export const initialRecommendCalorie = {
+  type: null,
+  weight: null,
+  result: false,
+  status: null,
+  isStatusOpen: false,
+}
+export const initialFeedCalorieState = {
+  type: null,
+  growth: null,
+  isBig: false,
+  nutrient: {
+    protein: null, // 조단백질
+    fat: null, // 조지방
+    fiber: null, // 조섬유
+    ash: null, // 조회분
+    calcium: null, // 칼슘
+    phosphorus: null, // 인
+    moisture: null, //
+    carbohydrate: null,
+    taurine: null,
+  },
+  result: false,
+}
 const initialState: AnimalState = {
-  age: { type: null, size: null, date: null, result: false, age: null },
-  bmi: { type: null, bmi: null, result: false },
-  recommendCalorie: {
-    type: null,
-    weight: null,
-    result: false,
-    status: null,
-    isStatusOpen: false,
-  },
-  feedCalorie: {
-    type: null,
-    growth: null,
-    isBig: false,
-    nutrient: {
-      protein: null, // 조단백질
-      fat: null, // 조지방
-      fiber: null, // 조섬유
-      ash: null, // 조회분
-      calcium: null, // 칼슘
-      phosphorus: null, // 인
-      moisture: null, //
-      carbohydrate: null,
-      taurine: null,
-    },
-    result: false,
-  },
+  age: initialAgeState,
+  bmi: initialBmiState,
+  recommendCalorie: initialRecommendCalorie,
+  feedCalorie: initialFeedCalorieState,
 }
 
 export default createReducer<AnimalState>(initialState, {

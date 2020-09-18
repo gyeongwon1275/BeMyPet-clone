@@ -8,7 +8,7 @@ import { DatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers'
 import DateFnsUtils from '@date-io/date-fns'
 import AgeUtils from './AgeUtils'
 import SubmitButton from '../UIcomponents/SubmitButton'
-
+import { initialAgeState } from '../../../../modules/calculator/reducer'
 interface AgeFormProps {
   animalAgeInfo: AgeState
   onInputAgeInfo: (ageInfoObject: AgeState) => void
@@ -34,6 +34,10 @@ function AgeForm({ animalAgeInfo, onInputAgeInfo }: AgeFormProps) {
 
   // 리덕스 상태를 변경시키면 리렌더링만 안되고 상태는 변경됨
   //
+
+  React.useEffect(() => {
+    onInputAgeInfo(initialAgeState)
+  }, [])
   const handleAnimalType = React.useCallback(
     (type: animalType) => () => {
       ageInfoObjct.type = type
