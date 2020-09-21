@@ -1,1 +1,98 @@
 @import '../styles/color.scss';
+@import './Main/UIcomponents/UIstyles.scss';
+
+.animal-select-label {
+  @include animalSelectLabel();
+}
+.calculator-container {
+  @include calculatorContainer();
+}
+
+.calculator-form {
+  @include calculatorForm();
+}
+
+.select-animal-wrapper {
+  @include selectAnimalWrapper();
+
+  /* 
+  flex-wrap property는 flex-item 요소들이 강제로 한줄에 배치되게 할 것인지, 또는 가능한 영역 내에서 벗어나지 않고 여러행으로 나누어 표현 할 것인지 결정하는 속성입니다.
+  */
+}
+
+.animal-select-label {
+  @include animalSelectLabel();
+}
+.input-container,
+.choose-status-wrapper {
+  display: flex;
+  width: 100%;
+  margin-bottom: 32px;
+}
+.input-wrapper {
+  @include inputWrapper();
+}
+
+.unselect-image-box,
+.select-image-box {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  height: 150px;
+  margin-right: 20px;
+  margin-top: 20px;
+  border: 5px solid #f6f7f8;
+  border-radius: 10px;
+  background-color: #f6f7f8;
+  justify-content: center;
+  align-items: center;
+  color: #cfcece;
+
+  img {
+    width: 110px;
+    height: 110px;
+  }
+  p {
+    text-align: center;
+    font-weight: bold;
+    font-family: 'yg-jalnan';
+  }
+}
+
+.select-image-box {
+  border: 5px solid $primaryColor;
+  background-color: white;
+  color: #090909;
+  & > img {
+    opacity: 1;
+  }
+}
+
+.unselect-image-box {
+  width: 150px;
+  height: 150px;
+
+  img {
+    background: transparent;
+    opacity: 0.35;
+  }
+}
+
+.select-image-wrapper {
+  display: flex;
+  max-width: 360px;
+}
+@media only screen and (max-width: 768px) {
+  .select-animal-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .input-container,
+  .choose-status-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 32px;
+  }
+}
