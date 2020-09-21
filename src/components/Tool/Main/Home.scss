@@ -1,54 +1,64 @@
 @import '../../styles/color.scss';
+@import './UIcomponents/UIstyles.scss';
 
-@mixin calculatorMenu($backgroundColor, $textColor) {
+.main-img-container {
   position: relative;
-  padding: 32px 30px;
-  margin-right: 20px;
-  background-color: $backgroundColor;
-  width: 220px;
-  height: 300px;
-  border-radius: 14px;
+  margin: 0 auto;
+  max-width: 620px;
+  height: 400px;
+  display: flex;
+  justify-content: flex-end;
 
-  /* 
-  두 개의 값을 사용하면 <offset-x><offset-y>로 분석합니다.
-세 번째 값이 주어지면 <blur-radius>로 분석합니다.
-네 번째 값이 주어지면 <spread-radius>로 분석합니다.
-  */
-  box-shadow: hsla(240, 3.1%, 87.5%, 0.65) 0px 30px 20px -10px;
-
-  h2,
-  span {
-    color: #090909;
-    font-size: 2.15rem;
-    line-height: 1.35em;
-    font-family: 'yg-jalnan';
-  }
-
-  span {
-    color: $textColor;
-  }
-
-  button {
-    border: none;
-    outline: none;
-    font-family: 'yg-jalnan';
-    width: 48px;
-    height: 48px;
-    border-radius: 14px;
-    background-color: $textColor;
-    position: absolute;
-    right: 30px;
-    bottom: 30px;
-    color: white;
-    font-size: 25px;
-  }
-
-  &:hover {
-    transition: 0.2s ease-in;
-    transform: scale(1.05);
-    cursor: pointer;
+  img {
+    width: 400px;
+    height: 400px;
   }
 }
+
+.logo-text-wrapper {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding-top: 93px;
+
+  h1,
+  span {
+    color: #090909;
+    font-size: 38px;
+    line-height: 1.315em;
+    white-space: nowrap;
+    font-weight: 700;
+    font-family: 'yg-jalnan';
+  }
+
+  .home-logo-span {
+    color: $primaryColor;
+  }
+  .age-logo-span {
+    color: #f29833;
+  }
+  .food-logo-span {
+    color: #4e7f1c;
+  }
+
+  .recommended-logo-span {
+    color: #5843be;
+  }
+
+  .bmi-logo-span {
+    color: #3b74c8;
+  }
+
+  p {
+    line-height: 1.75em;
+    font-family: Apple SD Gothic Neo;
+    font-size: 16px;
+    margin: 0px;
+    white-space: nowrap;
+    color: #868688;
+  }
+}
+
 .calculator-menu-container {
   width: 100%;
   display: flex;
@@ -70,4 +80,71 @@
   .age-calculator-menu {
     @include calculatorMenu(#fff3e5, #f29833);
   }
+}
+
+/* 
+TODO 
+
+- 로고, 이미지 축소
+
+- 칼로리 버튼 flex 정렬 변경
+
+*/
+
+@media only screen and (max-width: 768px) {
+  .main-img-container {
+    max-width: 375px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    img {
+      width: 160px;
+      height: 160px;
+      margin-left: 193px;
+    }
+  }
+  .logo-text-wrapper {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    padding-top: 0 !important;
+    h1,
+    span {
+      color: #090909;
+      font-size: 28px;
+      line-height: 37px;
+      white-space: nowrap;
+      font-weight: 700;
+      font-family: 'yg-jalnan';
+    }
+
+    .home-logo-span {
+      color: $primaryColor;
+    }
+    .age-logo-span {
+      color: #f29833;
+    }
+    .food-logo-span {
+      color: #4e7f1c;
+    }
+
+    .recommended-logo-span {
+      color: #5843be;
+    }
+
+    .bmi-logo-span {
+      color: #3b74c8;
+    }
+
+    p {
+      font-family: Apple SD Gothic Neo;
+      white-space: nowrap;
+      color: #868688;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+  }
+  /* 
+ max-width: 375px;
+  */
 }

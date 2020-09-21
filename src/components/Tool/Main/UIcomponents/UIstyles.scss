@@ -73,3 +73,53 @@
     }
   }
 }
+
+@mixin calculatorMenu($backgroundColor, $textColor) {
+  position: relative;
+  padding: 32px 30px;
+  margin-right: 20px;
+  background-color: $backgroundColor;
+  width: 220px;
+  height: 300px;
+  border-radius: 14px;
+
+  /* 
+  두 개의 값을 사용하면 <offset-x><offset-y>로 분석합니다.
+세 번째 값이 주어지면 <blur-radius>로 분석합니다.
+네 번째 값이 주어지면 <spread-radius>로 분석합니다.
+  */
+  box-shadow: hsla(240, 3.1%, 87.5%, 0.65) 0px 30px 20px -10px;
+
+  h2,
+  span {
+    color: #090909;
+    font-size: 2.15rem;
+    line-height: 1.35em;
+    font-family: 'yg-jalnan';
+  }
+
+  span {
+    color: $textColor;
+  }
+
+  button {
+    border: none;
+    outline: none;
+    font-family: 'yg-jalnan';
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background-color: $textColor;
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    color: white;
+    font-size: 25px;
+  }
+
+  &:hover {
+    transition: 0.2s ease-in;
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+}
