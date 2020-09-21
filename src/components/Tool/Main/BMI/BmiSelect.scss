@@ -9,7 +9,7 @@
   .bmi-img-wrapper {
     display: flex;
     flex-wrap: wrap;
-    max-width: 358px;
+    max-width: 360px;
 
     .unselect-image-box,
     .select-image-box {
@@ -50,6 +50,10 @@
 }
 
 @media only screen and (max-width: 768px) {
+  .bmi-img-wrapper {
+    max-width: 359px !important;
+  }
+
   .bmi-select-wrapper {
     flex-direction: column;
     min-width: 470px;
