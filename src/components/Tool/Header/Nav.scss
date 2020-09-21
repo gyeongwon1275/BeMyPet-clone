@@ -11,12 +11,15 @@
     top: 65px;
     bottom: 20px;
   }
+  .nav-menu-icon {
+    display: none;
+  }
 }
 
 .tool-nav-logo {
   img {
     width: 136px;
-    height: 80px;
+    height: auto;
   }
 }
 
@@ -44,7 +47,60 @@
     background-color: $primaryColor;
     border-radius: 50%;
   }
-  /*  span {
+}
+
+/* .hidden-nav {
+  position: absolute;
+  right: -100%;
+} */
+
+@mixin sideNav {
+  display: block;
+  height: 100%;
+  width: 45%;
+  position: fixed;
+  padding: 20px 30px;
+  z-index: 2;
+  top: 0px;
+  right: 0px;
+  background-color: rgb(255, 255, 255);
+  overflow-x: hidden;
+  transition: all 0.3s ease;
+  border-left: 1px solid rgb(228, 228, 230);
+
+  hr {
+    background-color: #e4e4e6;
+    height: 1px;
+  }
+  .cancel-icon {
+    font-size: 20px;
+    color: #cfcece;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .hidden-nav-menu {
+    display: flex !important;
+    flex-direction: column;
+    height: 37%;
+    justify-content: space-evenly;
+    align-items: start;
+    padding-bottom: 10px;
+    a {
+      position: relative;
+      font-size: 1.3rem;
+      text-align: center;
+      padding-right: 30px;
+      color: #868688;
+      z-index: 1;
+    }
+    .current-nav {
+      color: #090909;
+      font-weight: bold;
+    }
+    .current-nav:after {
       content: '';
       z-index: -1;
       position: absolute;
@@ -54,5 +110,69 @@
       height: 12px;
       background-color: $primaryColor;
       border-radius: 50%;
-    } */
+    }
+  }
+}
+
+.shown-nav {
+  @include sideNav();
+}
+
+.hidden-nav {
+  @include sideNav();
+  right: -100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .shown-nav {
+    display: none;
+  }
+}
+
+/* 
+TODO 
+
+원래 로고, nav tool-nav-menu 두개의 div 를 flex 로 구성해놓음 
+
+768px 보다 작아지면 
+
+1> 메인로고 크기 width 120px -> 74 로 변경 
+
+메인 로고는 그대로 있되 img 크기만 변경 
+
+2> 석삼메뉴 
+
+아이콘이야 그냥 폰트어썸에서 비슷한거 갖다 쓰고 
+
+768px 보다 작아지면 기존 nav 구성하던 div 를 display:none 처리 
+
+원래 none 처리 되어있던 메뉴바를 석삼메뉴 클릭하면 나오게 설정 
+
+cf > hover 하면 햄버거로 
+
+
+*/
+@media only screen and (max-width: 768px) {
+  .tool-nav-container {
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .nav-menu-icon {
+    display: block !important;
+    font-size: 20px;
+    color: #cfcece;
+  }
+
+  .tool-nav-menu {
+    display: none;
+  }
+
+  .tool-nav-logo {
+    img {
+      width: 74px;
+      height: auto;
+    }
+  }
 }
