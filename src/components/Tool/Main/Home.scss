@@ -82,19 +82,11 @@
   }
 }
 
-/* 
-TODO 
-
-- 로고, 이미지 축소
-
-- 칼로리 버튼 flex 정렬 변경
-
-*/
-
 @media only screen and (max-width: 768px) {
   .main-img-container {
     max-width: 375px;
     width: 100%;
+    height: auto;
     display: flex;
     justify-content: center;
     img {
@@ -144,7 +136,20 @@ TODO
       line-height: 1.5;
     }
   }
-  /* 
- max-width: 375px;
-  */
+
+  .calculator-menu-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .food-calculator-menu,
+  .recommend-calculator-menu,
+  .bmi-calculator-menu,
+  .age-calculator-menu {
+    width: 80% !important;
+    height: 160px !important;
+    margin-bottom: 16px;
+  }
 }
