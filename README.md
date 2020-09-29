@@ -10,11 +10,11 @@
 
 ### 🔧 Stack
 
-언어
+**언어**
 
 TypeScript / JavaScript / HTML / CSS 
 
-프레임워크 & 라이브러리 
+**프레임워크 & 라이브러리** 
 
 React / react-router / Redux / Sass / WebPack / material-ui / chart-js / immer 
 
