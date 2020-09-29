@@ -1,12 +1,22 @@
 ## Be My Pet calculator clone project
 
-[🌐 배포](https://gyeongwon1275.github.io/BeMyPet-clone)
+### [🌐 배포](https://gyeongwon1275.github.io/BeMyPet-clone)
 
 - [BeMyPet Tools](https://tools.mypetlife.co.kr/)의 clone 을 만드는 프로젝트
 
 - 기본적인 틀은 원본사이트와 일치하나 특정부분들은 변경하였음
 
 - Redux, 반응형 디자인 적용 
+
+### 🔧 Stack
+
+언어
+
+TypeScript / JavaScript / HTML / CSS 
+
+프레임워크 & 라이브러리 
+
+React / react-router / Redux / Sass / WebPack / material-ui / chart-js / immer 
 
 ### 나이계산기
 
