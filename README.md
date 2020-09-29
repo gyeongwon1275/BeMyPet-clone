@@ -1,6 +1,6 @@
 ## Be My Pet calculator clone project
 
-[Fake BeMyPet Tools](https://gyeongwon1275.github.io/BeMyPet-clone)
+[🌐 배포](https://gyeongwon1275.github.io/BeMyPet-clone)
 
 - [BeMyPet Tools](https://tools.mypetlife.co.kr/)의 clone 을 만드는 프로젝트
 
