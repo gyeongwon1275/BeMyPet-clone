@@ -14,6 +14,12 @@
 
 ![Alt Text](https://practicegyeongwon.s3.ap-northeast-2.amazonaws.com/age.gif)
 
+## 비만도 계산기 
+
+동물종류 선택 후 비만도를 선택하면 반려동물의 대략적인 비만도를 계산
+
+![Alt Text](https://practicegyeongwon.s3.ap-northeast-2.amazonaws.com/bmi.gif)
+
 ### 권장칼로리 계산기
 
 동물 종류 선택 후 몸무게, 상태를 선택하면 권장 칼로리를 계산
@@ -27,10 +33,11 @@
 기준에 충족하지 못하는 영양소 따로 표시 
 
 ![Alt Text](https://practicegyeongwon.s3.ap-northeast-2.amazonaws.com/feed_calroie.gif)
+
 ### 반응형 디자인 적용
 
 화면이 특정 너비보다 작아지면 drawer 메뉴 표시 
 
-기존 메뉴, 계산기 변경
+기존 메뉴와 계산기가 변경됨
 
 ![Alt Text](https://practicegyeongwon.s3.ap-northeast-2.amazonaws.com/reponsive.gif)
